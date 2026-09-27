@@ -112,3 +112,7 @@ Guides et Journal remplacent désormais leurs pages d’attente : trois guides o
 Chaque publication possède une page individuelle, un sommaire, un temps de lecture estimé, un récapitulatif et des liens vers les règles du domaine. L’accueil présente les guides. Le sitemap inclut maintenant les deux rubriques et leurs cinq publications : 91 URL lorsque le référencement est activé. La prévisualisation Workers conserve sa directive noindex.
 
 Validation : lint, 12 tests, builds Next.js et vinext réussis ; nouvelles pages, liens vers les règles et 404 vérifiés dans Workers local ; rendu de lecture contrôlé dans le navigateur. Les informations d’éditeur et de contact restent à fournir avant rédaction des pages légales.
+
+## Guides de consommation inspirés de thèmes RTL
+
+Trois guides originaux ajoutés : choisir un artisan, acheter une voiture d’occasion et acheter en ligne. Chaque page sépare les liens d’inspiration RTL des références officielles DGCCRF/Service-Public, avec une date de vérification et une mention d’indépendance. Les textes ne reproduisent ni les transcriptions ni les cas personnels de l’émission. Le sitemap comporte désormais 94 URL en mode indexable. Les 75 règles restent inchangées et sans numérotation visible.

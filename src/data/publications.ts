@@ -1,6 +1,189 @@
 import type { RuleCategoryId } from "@/data/rules";
-export type Publication = { kind: "guides" | "blog"; slug: string; title: string; description: string; categoryId: RuleCategoryId; intro: string; sections: { title: string; paragraphs: string[] }[]; checklist: string[] };
+export type Publication = { kind: "guides" | "blog"; slug: string; title: string; description: string; categoryId: RuleCategoryId; intro: string; sections: { title: string; paragraphs: string[] }[]; checklist: string[]; reviewedAt?: string; sources?: { label: string; url: string; kind: "inspiration" | "reference" }[] };
 export const publications: readonly Publication[] = [
+{
+  "slug": "choisir-un-artisan",
+  "title": "Avant les travaux : choisir un artisan et cadrer le devis",
+  "description": "Vérifier son interlocuteur, préciser les travaux et conserver des engagements écrits avant de payer.",
+  "intro": "Un prix séduisant ne suffit pas pour choisir la personne qui interviendra chez vous. Préparez un dossier simple : ce que vous attendez, ce que le professionnel propose et ce que vous acceptez de payer.",
+  "sections": [
+    {
+      "title": "Identifier la personne qui s’engage",
+      "paragraphs": [
+        "Demandez le nom de l’entreprise et ses coordonnées. Comparez ces informations sur le devis, les échanges et les documents remis. Une différence mérite une explication avant de signer. Demandez aussi les justificatifs d’assurance pertinents pour les travaux envisagés et faites préciser ce qu’ils couvrent."
+      ]
+    },
+    {
+      "title": "Faire décrire le chantier",
+      "paragraphs": [
+        "Évitez les formulations comme « rénovation complète » sans détail. Demandez les prestations, les matériaux, les quantités, le prix et les frais annexes. Faites préciser le calendrier et les exclusions : évacuation des déchets, finitions ou remise en état peuvent changer la comparaison entre deux offres.",
+        "Le devis accepté engage les parties. Prenez donc le temps de clarifier les points flous avant l’accord. Les obligations précises varient selon la prestation et les circonstances de conclusion du contrat ; la fiche DGCCRF citée ci-dessous détaille ces distinctions."
+      ]
+    },
+    {
+      "title": "Prévoir les paiements et les changements",
+      "paragraphs": [
+        "Faites écrire les montants et les échéances convenus. Évitez de régler tout le chantier avant sa réalisation. Pour une prestation supplémentaire, demandez une description et un prix écrits avant de donner votre accord. Un pourcentage conseillé dans une émission ne doit pas être confondu avec un plafond légal général.",
+        "Exemple fictif : le devis prévoit la peinture des murs, mais pas la préparation d’un support abîmé. Faites chiffrer ce point avant le début des travaux, plutôt que de découvrir le supplément en cours de chantier."
+      ]
+    },
+    {
+      "title": "Garder une trace exploitable",
+      "paragraphs": [
+        "Conservez le devis accepté, les factures, les preuves de paiement et les échanges dans un même dossier. Photographiez les lieux avant et pendant l’intervention. Si un désaccord apparaît, décrivez par écrit les faits et votre demande ; faites-vous accompagner pour déterminer les recours adaptés à votre contrat."
+      ]
+    }
+  ],
+  "checklist": [
+    "L’entreprise qui signe est identifiée.",
+    "Les travaux inclus et exclus sont écrits.",
+    "Le prix, le calendrier et les paiements sont clairs.",
+    "Les justificatifs pertinents ont été demandés.",
+    "Les modifications seront validées par écrit."
+  ],
+  "sources": [
+    {
+      "label": "RTL — Choisir son artisan, La règle d’or (2021)",
+      "url": "https://www.rtl.fr/actu/economie-consommation/travaux-ce-qu-il-faut-verifier-avant-de-choisir-son-artisan-7900033983",
+      "kind": "inspiration"
+    },
+    {
+      "label": "DGCCRF — Devis",
+      "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/devis",
+      "kind": "reference"
+    }
+  ],
+  "kind": "guides",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-27"
+},
+{
+  "slug": "acheter-une-voiture-occasion",
+  "title": "Voiture d’occasion : vérifier avant de s’engager",
+  "description": "Croiser les documents, l’historique et l’état du véhicule plutôt que se fier à une annonce rassurante.",
+  "intro": "Une visite se prépare avant de partir. Demandez les documents disponibles et notez les questions qui conditionnent votre décision. Le temps consacré aux vérifications fait partie de l’achat.",
+  "sections": [
+    {
+      "title": "Préparer la visite",
+      "paragraphs": [
+        "Demandez qui vend le véhicule, à quel titre, et quels documents seront présentés. Gardez une copie de l’annonce pour comparer les informations promises avec celles constatées sur place. Si une question importante reste sans réponse, ne laissez pas l’urgence du vendeur devenir votre échéance."
+      ]
+    },
+    {
+      "title": "Croiser l’historique et les documents",
+      "paragraphs": [
+        "Demandez au propriétaire de partager le rapport HistoVec. Il donne accès à des informations administratives enregistrées sur le véhicule ; confrontez-les aux documents et aux explications du vendeur. Consultez également les factures d’entretien disponibles. Aucune pièce, prise seule, ne remplace l’examen de l’état réel de la voiture."
+      ]
+    },
+    {
+      "title": "Lire le contrôle technique",
+      "paragraphs": [
+        "Pour une voiture de plus de quatre ans vendue à un particulier, le contrôle technique doit en principe dater de moins de six mois au dépôt de la demande de nouvelle carte grise. Lorsqu’une contre-visite est prescrite, le délai applicable doit être respecté. Des dispenses et des règles différentes existent selon le véhicule et l’acheteur : vérifiez votre situation dans la fiche Service-Public.",
+        "Ne vous contentez pas de la mention « contrôle OK » dans l’annonce. Lisez le procès-verbal, demandez les explications nécessaires et, en cas de doute sur l’état mécanique, faites examiner le véhicule par un professionnel indépendant."
+      ]
+    },
+    {
+      "title": "Décider après les vérifications",
+      "paragraphs": [
+        "Exemple fictif : l’annonce décrit une voiture parfaitement entretenue, mais les factures récentes manquent. Ce n’est pas une preuve de fraude ; c’est une incertitude à résoudre avant de prendre un engagement. Demandez les éléments disponibles et décidez si ce niveau d’incertitude vous convient.",
+        "Conservez les documents de vente et les engagements écrits. Pour un achat engageant votre budget, mieux vaut renoncer à une offre insuffisamment documentée que considérer une remise comme une réponse aux questions restées ouvertes."
+      ]
+    }
+  ],
+  "checklist": [
+    "L’annonce et les documents sont cohérents.",
+    "Le rapport HistoVec a été demandé.",
+    "Le contrôle technique applicable a été lu.",
+    "L’entretien et l’état réel ont été examinés.",
+    "Les incertitudes importantes sont résolues avant l’engagement."
+  ],
+  "sources": [
+    {
+      "label": "RTL — Voiture d’occasion : les conseils pour éviter les arnaques (2022)",
+      "url": "https://www.rtl.fr/actu/economie-consommation/voiture-d-occasion-carte-grise-controle-technique-les-conseils-pour-eviter-les-arnaques-7900165845",
+      "kind": "inspiration"
+    },
+    {
+      "label": "Service-Public — HistoVec",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/R68264",
+      "kind": "reference"
+    },
+    {
+      "label": "Service-Public — Vente et contrôle technique",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F16540",
+      "kind": "reference"
+    }
+  ],
+  "kind": "guides",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-27"
+},
+{
+  "slug": "acheter-en-ligne-avec-methode",
+  "title": "Achat en ligne : vérifier avant de payer",
+  "description": "Identifier le vendeur, lire les conditions et conserver les preuves pour éviter un achat mal préparé.",
+  "intro": "Un site soigné, une promotion et des commentaires enthousiastes ne suffisent pas pour décider. Avant de payer, vérifiez à qui vous achetez, ce qui est vendu et comment la commande doit se dérouler.",
+  "sections": [
+    {
+      "title": "Identifier le vendeur réel",
+      "paragraphs": [
+        "Cherchez son identité et ses coordonnées. Sur une place de marché, distinguez la plateforme du vendeur de l’article. Consultez les conditions de vente, le pays d’établissement et les modalités de contact. Si ces éléments sont absents ou incohérents, interrompez votre achat pour vérifier."
+      ]
+    },
+    {
+      "title": "Relire le panier sans se presser",
+      "paragraphs": [
+        "Contrôlez les caractéristiques, le montant final, la livraison et les frais de retour annoncés. Repérez les options ajoutées ou un éventuel abonnement. Le cadenas HTTPS protège la connexion, mais ne prouve pas à lui seul le sérieux du vendeur.",
+        "Exemple fictif : un produit paraît moins cher, mais le panier ajoute une livraison coûteuse et une option récurrente. Comparez le total réellement demandé avec votre besoin, plutôt que la réduction mise en avant."
+      ]
+    },
+    {
+      "title": "Comprendre la possibilité de retour",
+      "paragraphs": [
+        "Pour un bien acheté à distance auprès d’un professionnel, le consommateur dispose en général de quatorze jours à compter de sa réception pour notifier sa rétractation. Il existe des exceptions, notamment pour certains biens personnalisés ou périssables. Ce droit ne s’applique pas de la même façon à une vente entre particuliers. Vérifiez les conditions applicables avant de commander."
+      ]
+    },
+    {
+      "title": "Conserver les preuves et réagir par écrit",
+      "paragraphs": [
+        "Gardez la confirmation de commande, la description de l’offre et les justificatifs de paiement. Si la livraison ou le produit pose problème, rassemblez les faits et adressez une demande précise au vendeur. La fiche officielle sur les litiges en ligne indique les démarches possibles selon le problème.",
+        "Évitez de multiplier des messages dispersés : une chronologie avec les dates, les références et la réponse attendue permet de présenter clairement votre dossier. Ne transmettez pas vos codes bancaires à une personne qui prétend régler le litige."
+      ]
+    }
+  ],
+  "checklist": [
+    "Je sais qui est le vendeur.",
+    "J’ai vérifié le montant final et les options.",
+    "Les conditions de livraison et de retour sont lisibles.",
+    "Je connais les exceptions éventuelles à la rétractation.",
+    "Les preuves de commande et de paiement sont conservées."
+  ],
+  "sources": [
+    {
+      "label": "RTL — Acheter sur Internet, La règle d’or (2022)",
+      "url": "https://www.rtl.fr/actu/economie-consommation/vente-en-ligne-que-faut-il-savoir-avant-d-acheter-sur-internet-7900141653",
+      "kind": "inspiration"
+    },
+    {
+      "label": "DGCCRF — Acheter sur Internet de façon sécurisée",
+      "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/comment-realiser-des-achats-sur-internet-de-facon-securisee",
+      "kind": "reference"
+    },
+    {
+      "label": "Ministère de l’Économie — Droit de rétractation",
+      "url": "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/vente-distance-tout-savoir-sur-votre-droit-de-retractation",
+      "kind": "reference"
+    },
+    {
+      "label": "Ministère de l’Économie — Litiges en ligne",
+      "url": "https://www.economie.gouv.fr/particuliers/mes-droits-conso/gerer-un-litige/achats-et-services-en-ligne-6-conseils-en-cas-de-litige",
+      "kind": "reference"
+    }
+  ],
+  "kind": "guides",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-27"
+},
   {
     "kind": "guides",
     "slug": "preparer-une-decision-importante",

@@ -48,7 +48,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Un guide pour votre prochaine décision.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind === "guides").map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/blog" className="mt-8 inline-block font-semibold underline underline-offset-4">Découvrir aussi le journal →</Link></section>
+      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Un guide pour votre prochaine décision.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind === "guides").slice(0,3).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/blog" className="mt-8 inline-block font-semibold underline underline-offset-4">Découvrir aussi le journal →</Link></section>
 
       <section className="section-mro">
         <div className="container-mro">
