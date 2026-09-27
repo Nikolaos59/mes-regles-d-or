@@ -104,3 +104,11 @@ Dans Cloudflare Workers & Pages, importer le dépôt GitHub privé mes-regles-d-
 - Version Node.js du build : 22.16.0 ou plus récente compatible avec Vite 8.
 
 Conserver SITE_NOINDEX=true pour la prévisualisation workers.dev. Autoriser l’application GitHub de Cloudflare uniquement sur ce dépôt si possible. Après connexion, chaque envoi sur main déclenche les vérifications et la publication. La connexion GitHub/Cloudflare et la première publication restent à confirmer dans le tableau de bord.
+
+## Contenus ajoutés le 27 septembre 2026
+
+Guides et Journal remplacent désormais leurs pages d’attente : trois guides originaux (décision, réunion, test d’une idée) et deux articles (usage des règles, trace des décisions). Ces textes sont nouveaux, et ne constituent pas la migration des anciens articles introuvables.
+
+Chaque publication possède une page individuelle, un sommaire, un temps de lecture estimé, un récapitulatif et des liens vers les règles du domaine. L’accueil présente les guides. Le sitemap inclut maintenant les deux rubriques et leurs cinq publications : 91 URL lorsque le référencement est activé. La prévisualisation Workers conserve sa directive noindex.
+
+Validation : lint, 12 tests, builds Next.js et vinext réussis ; nouvelles pages, liens vers les règles et 404 vérifiés dans Workers local ; rendu de lecture contrôlé dans le navigateur. Les informations d’éditeur et de contact restent à fournir avant rédaction des pages légales.
