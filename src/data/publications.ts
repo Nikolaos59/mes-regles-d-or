@@ -3,6 +3,88 @@ export type Publication = { kind: "guides" | "blog"; slug: string; title: string
 export const publications: readonly Publication[] = [
 {
   "kind": "guides",
+  "slug": "artisan-abandon-chantier",
+  "title": "Chantier abandonné : documenter et agir dans le bon ordre",
+  "description": "Formaliser la demande de reprise, préserver les preuves et distinguer recours civil, infraction et liquidation.",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-28",
+  "intro": "Un chantier interrompu et un artisan injoignable demandent une réaction organisée. Rassemblez les faits avant de décider de la suite : une interruption justifiée, un abandon et la défaillance financière de l’entreprise ne se traitent pas de la même façon.",
+  "sections": [
+    {
+      "title": "Vérifier la situation et rassembler le dossier",
+      "paragraphs": [
+        "Relisez le devis accepté, le calendrier et les conditions de paiement. Notez la dernière intervention, les travaux réalisés, ceux qui restent à faire et les tentatives de contact. Une absence temporaire ne suffit pas à caractériser un abandon : demandez une explication et une date de reprise.",
+        "Classez les factures, les preuves de versement et les échanges. Photographiez le chantier sans vous exposer et faites traiter les dangers immédiats par un professionnel adapté. Conservez les justificatifs de toute mesure urgente."
+      ]
+    },
+    {
+      "title": "Mettre en demeure de reprendre les travaux",
+      "paragraphs": [
+        "Si l’interruption n’est pas justifiée et que les relances échouent, adressez une mise en demeure par lettre recommandée avec accusé de réception. Rappelez le contrat, les engagements non tenus et demandez une reprise dans un délai raisonnable adapté à la situation. Conservez une copie et la preuve de réception.",
+        "Un courrier formalise votre demande ; il ne garantit ni la reprise ni le remboursement. Évitez de fixer un délai arbitraire pour tous les cas. Si une procédure collective est ouverte, vérifiez à qui adresser les démarches."
+      ]
+    },
+    {
+      "title": "Faire constater avant de remplacer l’entreprise",
+      "paragraphs": [
+        "En l’absence de reprise, un constat de commissaire de justice peut documenter l’état du chantier. Un expert technique peut examiner les défauts et les travaux restant à réaliser. Le constat et l’expertise ont des fonctions différentes ; choisissez l’intervention adaptée au problème.",
+        "Avant de confier la suite à un autre artisan, faites examiner les conditions de rupture du contrat initial et de recours contre l’entreprise. Effacer les traces ou commander immédiatement une reprise complète peut compliquer la preuve et le remboursement demandé."
+      ]
+    },
+    {
+      "title": "Distinguer recours civil et soupçon d’infraction",
+      "paragraphs": [
+        "Le recours civil peut viser l’exécution du contrat, sa résolution ou une indemnisation, selon le dossier. Une expertise judiciaire peut aider à établir les désordres et leur coût ; l’expert éclaire le juge, il ne décide pas lui-même du remboursement.",
+        "Un acompte élevé, un retard ou un chantier inachevé ne constituent pas automatiquement un abus de confiance. Une qualification pénale exige des éléments spécifiques, notamment un détournement intentionnel dans le cas de l’abus de confiance. Faites apprécier les faits plutôt que d’accuser sur la seule base d’un paiement resté sans contrepartie."
+      ]
+    },
+    {
+      "title": "Si l’entreprise est en liquidation",
+      "paragraphs": [
+        "La liquidation impose une démarche distincte. Identifiez le liquidateur et renseignez-vous rapidement sur la déclaration de votre créance. Le délai de principe est de deux mois à compter de la publication du jugement d’ouverture au Bodacc, avec des exceptions selon la situation.",
+        "Déclarer une créance ne garantit pas d’être remboursé : le résultat dépend notamment des fonds disponibles et du rang des créanciers. N’attendez pas une promesse orale de l’artisan pour vérifier les démarches et les délais applicables."
+      ]
+    },
+    {
+      "title": "Prévoir des paiements cohérents avec le chantier",
+      "paragraphs": [
+        "Pour les prochains travaux, faites préciser par écrit les échéances et ce qu’elles financent. Comparez chaque appel de fonds au contrat et à l’avancement constaté ; demandez une justification d’une somme supplémentaire avant de l’accepter.",
+        "La fourchette de 10 à 30 % citée dans la transcription est un conseil de prudence, pas une limite légale générale. Des règles particulières peuvent s’appliquer à certains contrats. En cas de désaccord, faites examiner vos obligations de paiement avant de suspendre unilatéralement une échéance."
+      ]
+    }
+  ],
+  "checklist": [
+    "Le contrat, les paiements et les dates sont rassemblés.",
+    "La demande de reprise est formulée par écrit.",
+    "L’état du chantier est documenté avant une reprise par un tiers.",
+    "Le recours choisi correspond aux faits, sans qualification pénale automatique.",
+    "Une éventuelle procédure collective et ses délais sont vérifiés."
+  ],
+  "sources": [
+    {
+      "kind": "inspiration",
+      "label": "RTL — Travaux : que faire si mon artisan laisse le chantier en plan ? (2021 ; transcription fournie, repères 0:38–3:02)",
+      "url": "https://www.rtl.fr/actu/economie-consommation/travaux-que-faire-si-mon-artisan-laisse-le-chantier-en-plan-7900068830"
+    },
+    {
+      "kind": "reference",
+      "label": "DGCCRF — Abandon de chantier : recours",
+      "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/abandon-de-chantier-quels-sont-vos-recours"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Abus de confiance",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1515"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public Entreprendre — Déclaration de créances",
+      "url": "https://entreprendre.service-public.gouv.fr/vosdroits/F22359"
+    }
+  ]
+},
+{
+  "kind": "guides",
   "slug": "proprietaire-refuse-travaux",
   "title": "Location : que faire si le propriétaire ne réalise pas les travaux ?",
   "description": "Identifier les réparations dues, formaliser sa demande et choisir le bon recours sans suspendre soi-même le loyer.",
