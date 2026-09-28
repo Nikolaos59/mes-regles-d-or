@@ -3,6 +3,91 @@ export type Publication = { kind: "guides" | "blog"; slug: string; title: string
 export const publications: readonly Publication[] = [
 {
   "kind": "guides",
+  "slug": "proprietaire-refuse-travaux",
+  "title": "Location : que faire si le propriétaire ne réalise pas les travaux ?",
+  "description": "Identifier les réparations dues, formaliser sa demande et choisir le bon recours sans suspendre soi-même le loyer.",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-28",
+  "intro": "Un équipement défectueux et une envie de rafraîchir la décoration ne posent pas la même question. Avant de réclamer des travaux, identifiez le problème, sa cause et la personne qui doit intervenir. Ce guide concerne les baux d’habitation en France.",
+  "sections": [
+    {
+      "title": "Distinguer entretien, vétusté et défaut du logement",
+      "paragraphs": [
+        "L’entretien courant et les petites réparations relèvent généralement du locataire. Mais une réparation rendue nécessaire par la vétusté peut incomber au propriétaire, même si elle figure habituellement parmi les réparations locatives. La nature de la panne et son origine comptent donc autant que le nom de l’équipement.",
+        "Un simple souhait de décoration ne suffit pas à rendre des travaux obligatoires. En revanche, le bailleur doit respecter ses obligations de réparation et de décence. Comparez votre situation avec les fiches officielles ci-dessous avant d’affirmer qui doit payer."
+      ]
+    },
+    {
+      "title": "Décrire le problème et conserver les preuves",
+      "paragraphs": [
+        "Rassemblez le bail, l’état des lieux, des photos datées et les échanges déjà intervenus. Si un professionnel a constaté une panne, conservez son diagnostic. Présentez une chronologie courte : apparition du problème, signalements et réponses reçues.",
+        "Exemple fictif : le chauffage reste défaillant malgré un entretien réalisé. Décrivez les pièces concernées et les interventions effectuées, plutôt que d’envoyer seulement « il faut tout refaire ». Une demande précise aide à identifier les travaux attendus."
+      ]
+    },
+    {
+      "title": "Formaliser la demande par une mise en demeure",
+      "paragraphs": [
+        "Si les démarches amiables n’aboutissent pas et que les travaux incombent au bailleur, adressez une mise en demeure par lettre recommandée avec accusé de réception. Décrivez les désordres, demandez leur traitement et joignez les pièces utiles. Gardez une copie du courrier et la preuve de réception.",
+        "Proposez un délai adapté à la situation pour obtenir une réponse et un calendrier. Ce délai demandé ne remplace pas les délais des procédures légales. En cas de danger immédiat, recherchez une aide urgente adaptée sans attendre l’issue des courriers."
+      ]
+    },
+    {
+      "title": "Choisir une démarche adaptée au litige",
+      "paragraphs": [
+        "La fiche Service-Public sur les travaux du bailleur indique qu’après deux mois sans accord ou sans réponse à la mise en demeure, le locataire peut recourir à la commission départementale de conciliation ou à un conciliateur de justice avant de saisir le juge.",
+        "La commission intervient gratuitement ; pour un litige sur les réparations, sa saisine est facultative. Une tentative amiable peut néanmoins être exigée avant certaines actions judiciaires. La procédure dépend notamment de la demande et d’un éventuel défaut de décence : faites préciser votre parcours avant de saisir le tribunal. Le juge des contentieux de la protection peut imposer des travaux si les conditions sont réunies."
+      ]
+    },
+    {
+      "title": "Ne pas suspendre soi-même le loyer",
+      "paragraphs": [
+        "Le refus de travaux n’autorise pas, à lui seul, à arrêter les paiements ou à déduire une facture du loyer. Continuez à respecter vos obligations pendant les démarches. Une réduction, une suspension ou une consignation doit reposer sur le cadre légal applicable, notamment une décision du juge ; ne la décidez pas unilatéralement.",
+        "Conservez aussi la preuve des conséquences concrètes du problème : pièce inutilisable, dépenses justifiées ou durée des désordres. Une éventuelle indemnisation doit être examinée au regard des faits ; elle n’est pas acquise par la seule annonce d’une demande de dommages-intérêts."
+      ]
+    }
+  ],
+  "checklist": [
+    "J’ai distingué l’entretien courant de la vétusté et des travaux du bailleur.",
+    "Mon dossier décrit des faits et contient des justificatifs.",
+    "Ma demande écrite précise les travaux attendus.",
+    "J’ai conservé le courrier et sa preuve de réception.",
+    "Je vérifie le recours approprié et continue à régler le loyer dû."
+  ],
+  "sources": [
+    {
+      "kind": "inspiration",
+      "label": "Ça peut vous arriver — transcription fournie par le lecteur : travaux du bailleur (0:38–2:51). Épisode précis non identifié ; lien vers l’émission.",
+      "url": "https://www.rtl.fr/programmes/ca-peut-vous-arriver"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Travaux à la charge du propriétaire",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F31699"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Réparations locatives",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F31697"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Dégradations et vétusté",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F21105"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Commission départementale de conciliation",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1216"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Litiges liés à la location",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F31301"
+    }
+  ]
+},
+{
+  "kind": "guides",
   "slug": "degat-des-eaux-bons-reflexes",
   "title": "Dégât des eaux : agir vite et garder les preuves",
   "description": "Limiter les dommages, prévenir son assurance et préparer un dossier clair sans effacer les preuves.",
