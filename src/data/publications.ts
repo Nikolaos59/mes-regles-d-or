@@ -2,6 +2,81 @@ import type { RuleCategoryId } from "@/data/rules";
 export type Publication = { kind: "guides" | "blog"; slug: string; title: string; description: string; categoryId: RuleCategoryId; intro: string; sections: { title: string; paragraphs: string[] }[]; checklist: string[]; reviewedAt?: string; sources?: { label: string; url: string; kind: "inspiration" | "reference" }[] };
 export const publications: readonly Publication[] = [
 {
+  "kind": "guides",
+  "slug": "degat-des-eaux-bons-reflexes",
+  "title": "Dégât des eaux : agir vite et garder les preuves",
+  "description": "Limiter les dommages, prévenir son assurance et préparer un dossier clair sans effacer les preuves.",
+  "categoryId": "argent-consommation",
+  "reviewedAt": "2026-09-28",
+  "intro": "Une fuite demande deux réflexes complémentaires : empêcher les dégâts de s’aggraver et documenter ce qui s’est passé. Ce guide distingue les mesures urgentes de la remise en état, pour agir dans le bon ordre.",
+  "sections": [
+    {
+      "title": "Limiter les dégâts sans se mettre en danger",
+      "paragraphs": [
+        "Si vous pouvez le faire sans risque, fermez l’arrivée d’eau concernée. Si la fuite vient d’ailleurs, prévenez le voisin ou le syndic. Faites réparer la fuite rapidement ; ne manipulez pas d’installation électrique mouillée et sollicitez une intervention adaptée en cas de danger.",
+        "La réparation urgente de la fuite est différente de la réfection des peintures ou des sols. Pour cette remise en état, obtenez d’abord l’accord de votre assureur. Gardez les justificatifs des interventions urgentes."
+      ]
+    },
+    {
+      "title": "Déclarer rapidement et décrire les faits",
+      "paragraphs": [
+        "Prévenez votre assureur dès la découverte. Le délai prévu au contrat ne peut en principe être inférieur à cinq jours ouvrés. Vérifiez ses modalités de déclaration. Un constat amiable peut faciliter le dossier, mais il n’est pas obligatoire.",
+        "Notez la date, les pièces touchées, les dommages visibles et les démarches entreprises. Distinguez les faits observés de vos suppositions : « de l’eau apparaît au plafond » ne permet pas encore d’affirmer quelle installation fuit. Conservez la confirmation de votre déclaration."
+      ]
+    },
+    {
+      "title": "Photographier et conserver les éléments utiles",
+      "paragraphs": [
+        "Prenez des vues d’ensemble et des détails des dommages, sans vous exposer. Faites une liste des biens touchés et rassemblez les factures disponibles. Avant de jeter un objet endommagé, demandez les consignes de l’assureur ; la conservation des preuves ne doit pas créer de danger.",
+        "Exemple fictif : une fuite a détrempé un meuble. Photographiez son emplacement, les zones abîmées et son identification, puis ajoutez sa facture si vous l’avez. Un dossier organisé sera plus facile à examiner qu’une série de photos sans contexte."
+      ]
+    },
+    {
+      "title": "Préparer l’expertise sans la présumer obligatoire",
+      "paragraphs": [
+        "L’expertise n’est pas systématique. Lorsqu’un expert intervient, il examine notamment les causes et les dommages. Préparez vos documents et signalez les éléments qui pourraient être oubliés. Le montant de 1 600 euros évoqué dans la transcription ne doit pas être présenté comme une obligation légale universelle d’expertise.",
+        "Si vous contestez ses conclusions, demandez des explications et renseignez-vous sur la contre-expertise. Vérifiez auparavant la prise en charge de ses frais dans votre contrat. Ne confondez pas le coût estimé des réparations et l’indemnité finalement proposée."
+      ]
+    },
+    {
+      "title": "Vérifier la garantie mobilisée",
+      "paragraphs": [
+        "L’origine de l’eau, les exclusions et les franchises comptent : toute entrée d’eau ne garantit pas une indemnisation. Demandez à l’assureur quelle garantie il examine et quels documents il attend.",
+        "Une inondation relevant du régime des catastrophes naturelles obéit à des conditions spécifiques, notamment un arrêté de reconnaissance et une assurance ouvrant droit à cette garantie. Pour ce régime, la déclaration doit être faite au plus tard trente jours après la publication de l’arrêté. Une forte pluie ne suffit donc pas, à elle seule, à garantir la prise en charge."
+      ]
+    }
+  ],
+  "checklist": [
+    "La fuite et les dangers immédiats sont pris en charge.",
+    "La déclaration est transmise et sa confirmation conservée.",
+    "Les dommages sont photographiés et les justificatifs rassemblés.",
+    "La remise en état attend les consignes de l’assureur.",
+    "La garantie et les conditions de prise en charge sont vérifiées."
+  ],
+  "sources": [
+    {
+      "kind": "inspiration",
+      "label": "La règle d’or — Dégât des eaux (transcription fournie par le lecteur ; repères 1:21, 2:19 et 2:27)",
+      "url": "https://www.youtube.com/watch?v=NcnPI8KRmyE"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Assurance dégâts des eaux",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1352"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Expertise en assurance habitation",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F3075"
+    },
+    {
+      "kind": "reference",
+      "label": "Service-Public — Indemnisation des catastrophes naturelles",
+      "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F3076"
+    }
+  ]
+},
+{
   "slug": "choisir-un-artisan",
   "title": "Avant les travaux : choisir un artisan et cadrer le devis",
   "description": "Vérifier son interlocuteur, préciser les travaux et conserver des engagements écrits avant de payer.",
