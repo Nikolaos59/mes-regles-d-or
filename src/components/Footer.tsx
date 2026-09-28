@@ -16,7 +16,7 @@ const footerNavigation = {
       href: "/guides",
     },
     {
-      label: "Blog",
+      label: "Journal",
       href: "/blog",
     },
   ],

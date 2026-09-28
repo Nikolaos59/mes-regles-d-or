@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navigation = [
@@ -15,7 +17,7 @@ const navigation = [
     href: "/guides",
   },
   {
-    label: "Blog",
+    label: "Journal",
     href: "/blog",
   },
   {
@@ -25,6 +27,8 @@ const navigation = [
 ] as const;
 
 export default function Header() {
+  const pathname = usePathname();
+  const active = (href: string) => pathname === href || pathname.startsWith(href + "/");
   return (
     <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#F7F6F3]/90 backdrop-blur-xl">
       <div className="container-mro flex h-[82px] items-center justify-between">
@@ -50,7 +54,8 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[15px] font-medium text-[#4B5563] transition-colors duration-200 hover:text-[#0F172A]"
+              aria-current={active(item.href) ? "page" : undefined}
+              className={`border-b-2 py-3 text-[15px] font-medium transition-colors ${active(item.href) ? "border-[#9B752A] text-[#0F172A]" : "border-transparent text-[#4B5563] hover:text-[#0F172A]"}`}
             >
               {item.label}
             </Link>
@@ -66,7 +71,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <details className="group relative xl:hidden">
+        <details key={pathname} className="group relative xl:hidden">
           <summary
             className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-black/10 bg-white"
             aria-label="Ouvrir le menu"
@@ -86,7 +91,8 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-[16px] px-4 py-3.5 text-[16px] font-medium text-[#374151] transition-colors hover:bg-[#F7F6F3] hover:text-[#0F172A]"
+              aria-current={active(item.href) ? "page" : undefined}
+                  className={`rounded-[16px] px-4 py-3.5 text-[16px] font-medium transition-colors ${active(item.href) ? "bg-[#EEE6D4] text-[#0F172A]" : "text-[#374151] hover:bg-[#F7F6F3]"}`}
                 >
                   {item.label}
                 </Link>
