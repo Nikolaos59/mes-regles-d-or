@@ -116,3 +116,7 @@ Validation : lint, 12 tests, builds Next.js et vinext réussis ; nouvelles pages
 ## Guides de consommation inspirés de thèmes RTL
 
 Trois guides originaux ajoutés : choisir un artisan, acheter une voiture d’occasion et acheter en ligne. Chaque page sépare les liens d’inspiration RTL des références officielles DGCCRF/Service-Public, avec une date de vérification et une mention d’indépendance. Les textes ne reproduisent ni les transcriptions ni les cas personnels de l’émission. Le sitemap comporte désormais 94 URL en mode indexable. Les 75 règles restent inchangées et sans numérotation visible.
+
+## Enrichissement éditorial — 28 septembre 2026
+
+La bibliothèque contient 29 guides et 2 articles de journal, en complément des 75 règles. Vingt guides originaux supplémentaires comportent une date de consultation et des références précises. Les guides sont regroupés en sept thèmes ; la recherche couvre désormais les règles et les publications. Le fichier `docs/SOURCES-EDITORIALES.md` conserve les références et la réserve de sujets à vérifier. Les sujets de la réserve ne sont pas publiés.

@@ -5,7 +5,7 @@ type SearchBarProps = { query?: string; categoryId?: string };
 
 export default function SearchBar({ query = "", categoryId = "" }: SearchBarProps) {
   return (
-    <form action="/recherche" method="get" role="search" aria-label="Rechercher dans les règles" className="rounded-[28px] border border-black/[0.08] bg-white p-6 sm:p-8">
+    <form action="/recherche" method="get" role="search" aria-label="Rechercher dans les règles et les guides" className="rounded-[28px] border border-black/[0.08] bg-white p-6 sm:p-8">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)_auto] lg:items-end">
         <div className="min-w-0">
           <label htmlFor="rule-query" className="mb-2 block text-base font-semibold">Un mot, un sujet</label>
@@ -20,7 +20,7 @@ export default function SearchBar({ query = "", categoryId = "" }: SearchBarProp
         </div>
         <button type="submit" className="h-14 cursor-pointer rounded-full bg-[#0F172A] px-7 text-base font-semibold text-white transition-colors hover:bg-[#24324B]">Rechercher →</button>
       </div>
-      <p id="search-help" className="mt-4 text-sm leading-6 text-[#6B7280]">Explorez les titres et les conseils des 75 règles. Les accents et les majuscules ne changent pas les résultats.</p>
+      <p id="search-help" className="mt-4 text-sm leading-6 text-[#6B7280]">Explorez les 75 règles, les guides pratiques et le journal. Les accents et les majuscules ne changent pas les résultats.</p>
     </form>
   );
 }

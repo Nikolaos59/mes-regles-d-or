@@ -1,5 +1,6 @@
 import type { PublicationTheme } from "@/data/publication-themes";
 const paths = {
+ shield:"M12 3 3 7v5c0 5 9 10 9 10s9-5 9-10V7l-9-4ZM8 12l3 3 5-6",
  house:"M3 11 12 3l9 8M5 10v11h14V10M9 21v-7h6v7",
  tools:"m4 20 9-9M15 3a5 5 0 0 0-4 7l3 3a5 5 0 0 0 7-4l-4 2-4-4 2-4ZM3 19l2 2",
  car:"m4 10 2-6h12l2 6M3 10h18v8H3zM6 18v3M18 18v3M6 14h2M16 14h2",

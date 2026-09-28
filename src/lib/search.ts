@@ -1,3 +1,4 @@
+import type { Publication } from "@/data/publications";
 import type { Rule } from "@/data/rules";
 import type { Category } from "@/data/categories";
 
@@ -25,5 +26,22 @@ export function searchRules(
     const category = categories.find((item) => item.id === rule.categoryId);
     const text = normalizeSearch([rule.title, rule.summary, rule.detail, category?.name].join(" "));
     return terms.every((term) => text.includes(term));
+  });
+}
+
+export function searchPublications(
+  items: readonly Publication[],
+  query: string,
+  categoryId = "",
+): readonly Publication[] {
+  const terms = normalizeSearch(query.slice(0, MAX_QUERY_LENGTH)).split(/\s+/).filter(Boolean);
+  return items.filter((item) => {
+    if (categoryId && item.categoryId !== categoryId) return false;
+    const text = normalizeSearch([
+      item.title, item.description, item.intro,
+      ...item.sections.flatMap(section => [section.title, ...section.paragraphs]),
+      ...item.checklist,
+    ].join(" "));
+    return terms.every(term => text.includes(term));
   });
 }

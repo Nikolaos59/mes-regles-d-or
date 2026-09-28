@@ -58,3 +58,32 @@ test("URL parameters are bounded and repeated parameters use the first value", (
   assert.equal(readSearchParam([" budget ", "fraude"]), "budget");
   assert.equal(readSearchParam("x".repeat(500)).length, MAX_QUERY_LENGTH);
 });
+
+const { verifiedGuides } = await loadTypeScript("../src/data/guides-verified.ts");
+const { publicationTheme, publicationThemes } = await loadTypeScript("../src/data/publication-themes.ts");
+const { searchPublications } = await loadTypeScript("../src/lib/search.ts");
+
+test("guides: search finds body text, tolerates accents and respects domains", () => {
+  const find = (q, domain = "") => searchPublications(verifiedGuides, q, domain).map(item => item.slug);
+  assert.ok(find("COLIS introuvable").includes("colis-livre-introuvable"));
+  assert.ok(find("depot garantie").includes("depot-garantie-restitution"));
+  assert.ok(find("redirections").includes("boite-mail-piratee"));
+  assert.deepEqual(find("redirections", "argent-consommation"), []);
+  assert.deepEqual(find("termeinexistant"), []);
+  assert.equal(find("").length, verifiedGuides.length);
+});
+
+test("guides: every new article has a valid theme, source and distinct URL", () => {
+  const slugs = new Set();
+  for (const item of verifiedGuides) {
+    assert.ok(!slugs.has(item.slug));
+    slugs.add(item.slug);
+    assert.ok(categories.some(category => category.id === item.categoryId));
+    assert.ok(publicationThemes.some(theme => theme.id === item.themeId));
+    assert.equal(publicationTheme(item).id, item.themeId);
+    assert.ok(item.sections.length >= 3);
+    assert.ok(item.checklist.length >= 3);
+    assert.match(item.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(item.sources.some(source => source.kind === "reference" && new URL(source.url).protocol === "https:"));
+  }
+});

@@ -1,6 +1,9 @@
+import { verifiedGuides } from "@/data/guides-verified";
+import type { PublicationThemeId } from "@/data/publication-themes";
 import type { RuleCategoryId } from "@/data/rules";
-export type Publication = { kind: "guides" | "blog"; slug: string; title: string; description: string; categoryId: RuleCategoryId; intro: string; sections: { title: string; paragraphs: string[] }[]; checklist: string[]; reviewedAt?: string; sources?: { label: string; url: string; kind: "inspiration" | "reference" }[] };
+export type Publication = { kind: "guides" | "blog"; slug: string; title: string; description: string; categoryId: RuleCategoryId; themeId?: PublicationThemeId; intro: string; sections: { title: string; paragraphs: string[] }[]; checklist: string[]; reviewedAt?: string; sources?: { label: string; url: string; kind: "inspiration" | "reference" }[] };
 export const publications: readonly Publication[] = [
+...verifiedGuides,
 {
   "kind": "guides",
   "slug": "artisan-abandon-chantier",
