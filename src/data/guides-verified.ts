@@ -1,6 +1,61 @@
 import type { Publication } from "@/data/publications";
 
 export const verifiedGuides: readonly Publication[] = [
+{
+  "kind": "guides",
+  "slug": "rappel-produit-bons-reflexes",
+  "title": "Produit rappelé : vérifier le lot avant d’agir",
+  "description": "Retrouver l’avis officiel et suivre les consignes adaptées à votre produit.",
+  "categoryId": "argent-consommation",
+  "themeId": "achats",
+  "reviewedAt": "2026-09-29",
+  "intro": "La règle d’or : consultez l’avis officiel avant de réutiliser un produit potentiellement concerné. Le nom de la marque ne suffit pas à identifier un rappel.",
+  "sections": [
+    {
+      "title": "Retrouver la bonne référence",
+      "paragraphs": [
+        "Recherchez le produit sur RappelConso. Comparez les références de votre emballage avec celles de la fiche : dénomination, lot et dates lorsqu’elles sont indiquées. Gardez une photo lisible de ces informations. Si la correspondance reste incertaine, contactez le service mentionné dans l’avis."
+      ]
+    },
+    {
+      "title": "Mettre le produit de côté",
+      "paragraphs": [
+        "Un rappel concerne des produits déjà vendus, tandis qu’un retrait porte sur ceux encore dans le circuit de vente. Si votre produit est concerné, cessez de l’utiliser et conservez son emballage. Ne le donnez pas à quelqu’un d’autre."
+      ]
+    },
+    {
+      "title": "Suivre les consignes de l’avis",
+      "paragraphs": [
+        "Selon le rappel, il peut être demandé de rapporter le produit, de le détruire selon des instructions précises ou de contacter le fabricant. Consultez les modalités et l’échéance affichées : ne présumez pas qu’une même procédure de remboursement s’applique à tous les rappels. Conservez vos justificatifs d’achat."
+      ]
+    },
+    {
+      "title": "Signaler un problème",
+      "paragraphs": [
+        "Un produit vous paraît dangereux sans rappel identifié ? Vous pouvez signaler le problème sur SignalConso. Si vous ressentez un effet inhabituel après avoir utilisé un produit rappelé, demandez conseil à un professionnel de santé. Les rappels de médicaments et dispositifs médicaux se consultent auprès de l’ANSM."
+      ]
+    }
+  ],
+  "checklist": [
+    "Référence et lot comparés à l’avis officiel.",
+    "Produit concerné mis de côté.",
+    "Consignes et échéance relevées.",
+    "Emballage et justificatifs conservés."
+  ],
+  "sources": [
+    {
+      "kind": "reference",
+      "label": "Ministère de l’Économie — Retraits et rappels de produits",
+      "url": "https://www.economie.gouv.fr/particuliers/mes-droits-conso/bien-consommer/retraits-et-rappels-de-produits-comment-signaler-et-sinformer-sur-les-produits-risque"
+    },
+    {
+      "kind": "reference",
+      "label": "RappelConso — Alertes officielles de produits dangereux",
+      "url": "https://rappel.conso.gouv.fr/"
+    }
+  ]
+}
+,
 
   {
     "kind": "guides",

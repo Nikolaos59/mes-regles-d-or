@@ -79,3 +79,8 @@ Pistes à approfondir : comparaison des prix et formats, promotions et fidélit�
 
 Sources précises consultées le 29 septembre 2026 et citées dans chaque guide. Textes originaux, disponibles dans la prévisualisation locale.
 
+
+## Rappels de produits — 29 septembre 2026
+
+Guide /guides/rappel-produit-bons-reflexes : texte original, références Ministère de l’Économie et RappelConso consultées ce jour. Aucun rappel particulier présenté comme actuel ; le lecteur est orienté vers les avis officiels. Tags Achats, Courses et Recours.
+

@@ -13,6 +13,7 @@ export const tags = [
 ] as const;
 export type TagSlug = typeof tags[number]["slug"];
 const extras: Record<string, readonly TagSlug[]> = {
+  "rappel-produit-bons-reflexes":["courses","recours"],
   "formats-familiaux-prix-kilo":["budget","courses"],
   "carte-fidelite-cagnotte":["budget","promotions"],
   "produits-date-courte":["courses","budget"],
