@@ -1,0 +1,36 @@
+.hero { padding: 58px 0 24px; }
+.intro { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: end; margin-bottom: 38px; }
+.title { font-size: clamp(2.7rem, 5vw, 4.7rem); line-height: 1.03; letter-spacing: -.055em; font-weight: 520; margin-top: 24px; }
+.lead { max-width: 390px; color: var(--muted); font-size: 17px; }
+.allRules { display: inline-flex; gap: 24px; color: var(--navy); border-bottom: 1px solid var(--gold); padding-bottom: 6px; margin-top: 20px; font-weight: 600; }
+.panels { display: flex; gap: 12px; height: 410px; }
+.panel { position: relative; isolation: isolate; overflow: hidden; flex: 1 1 0; min-width: 0; border-radius: 16px; background: var(--navy); color: white; transition: flex-grow .45s ease; }
+.photo, .shade { position: absolute; inset: 0; z-index: -1; }
+.photo { background-size: cover; background-position: center; transition: transform .6s ease; }
+.shade { background: linear-gradient(180deg, rgba(6,14,24,.08) 20%, rgba(6,14,24,.82) 100%); }
+.copy { position: absolute; bottom: 65px; left: 22px; right: 18px; }
+.panelTitle { display: block; font-size: clamp(1.15rem, 1.8vw, 1.65rem); font-weight: 600; letter-spacing: -.035em; }
+.description { display: block; max-width: 280px; font-size: 14px; line-height: 1.5; margin-top: 10px; }
+.arrow { position: absolute; bottom: 18px; left: 22px; font-size: 22px; }
+.panel:focus-visible { flex-grow: 3.5; outline-offset: 4px; }
+.panel:focus-visible .photo { transform: scale(1.04); }
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 20px; font-size: 14px; color: var(--muted); }
+.footer a { color: var(--navy); font-weight: 600; }
+@media (hover: hover) and (pointer: fine) and (min-width: 1000px) {
+  .panel:hover { flex-grow: 3.5; }
+  .panel:hover .photo { transform: scale(1.04); }
+}
+@media (max-width: 999px) {
+  .intro { grid-template-columns: 1fr; gap: 24px; }
+  .lead { max-width: 600px; }
+  .panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: auto; }
+  .panel { min-height: 270px; }
+  .panel:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .hero { padding-top: 32px; }
+  .panels { grid-template-columns: 1fr; }
+  .panel { min-height: 240px; }
+  .panelTitle { font-size: 1.8rem; }
+  .copy { bottom: 64px; }
+}
