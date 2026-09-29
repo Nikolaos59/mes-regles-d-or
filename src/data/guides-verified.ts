@@ -1,6 +1,145 @@
 import type { Publication } from "@/data/publications";
 
 export const verifiedGuides: readonly Publication[] = [
+
+  {
+    "kind": "guides",
+    "slug": "formats-familiaux-prix-kilo",
+    "title": "Format familial : comparer avant de remplir le panier",
+    "description": "Comparer les quantités, le prix au kilo et ce que vous utiliserez vraiment.",
+    "intro": "La règle d’or : un grand paquet ne prouve pas une économie. Ramenez les offres à la même unité avant de choisir.",
+    "themeId": "achats",
+    "categoryId": "argent-consommation",
+    "reviewedAt": "2026-09-29",
+    "sections": [
+      {
+        "title": "Comparer des produits équivalents",
+        "paragraphs": [
+          "Vérifiez la référence, la composition et la quantité nette. La DGCCRF rappelle que le prix au kilo ou au litre accompagne le prix de vente pour la majorité des produits alimentaires préemballés, avec des exceptions. Deux emballages proches peuvent contenir des quantités différentes."
+        ]
+      },
+      {
+        "title": "Faire un calcul simple",
+        "paragraphs": [
+          "Exemple fictif : 400 g à 3 € représentent 7,50 €/kg ; 750 g à 6 € représentent 8 €/kg. Le plus gros paquet revient ici plus cher à quantité égale. Divisez le prix par le poids en kilogrammes, ou par le volume en litres."
+        ]
+      },
+      {
+        "title": "Acheter la quantité utile",
+        "paragraphs": [
+          "Comparez d’abord le montant payé immédiatement, puis les éventuels avantages différés. Un lot oblige parfois à acheter davantage que prévu. Avant de le choisir, vérifiez votre stock, la place disponible et la quantité que vous consommerez. L’analyse des formats proposée par Olivier Dauvers inspire ce réflexe ; ses exemples anciens ne constituent pas un relevé de prix actuel."
+        ]
+      }
+    ],
+    "checklist": [
+      "Même produit et même unité comparés.",
+      "Prix au kilo ou au litre recalculé en cas de doute.",
+      "Quantité adaptée aux besoins."
+    ],
+    "sources": [
+      {
+        "label": "DGCCRF — L’information sur les prix",
+        "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/linformation-sur-les-prix",
+        "kind": "reference"
+      },
+      {
+        "label": "Olivier Dauvers — Quiz Grande Conso, 23 août 2023",
+        "url": "https://www.olivierdauvers.fr/2023/08/23/les-quiz-grande-conso-jai-une-colle-pour-vous/",
+        "kind": "inspiration"
+      }
+    ]
+  },
+  {
+    "kind": "guides",
+    "slug": "carte-fidelite-cagnotte",
+    "title": "Carte de fidélité : compter les économies réellement utilisées",
+    "description": "Vérifier les conditions d’une cagnotte avant d’acheter pour gagner des points.",
+    "intro": "La règle d’or : une récompense future n’est pas une réduction immédiate. Évaluez l’avantage à partir de vos achats prévus.",
+    "themeId": "achats",
+    "categoryId": "argent-consommation",
+    "reviewedAt": "2026-09-29",
+    "sections": [
+      {
+        "title": "Séparer paiement et récompense",
+        "paragraphs": [
+          "Exemple fictif : un produit payé 10 € avec 3 € cagnottés coûte bien 10 € aujourd’hui. L’avantage de 3 € ne devient une économie que si vous pouvez l’utiliser sur un prochain achat utile. Comparez aussi les offres sans carte."
+        ]
+      },
+      {
+        "title": "Lire les conditions du programme",
+        "paragraphs": [
+          "Vérifiez les produits éligibles, l’activation éventuelle des offres, les exclusions, le minimum d’achat, les magasins concernés et la date d’expiration. Contrôlez aussi les frais d’adhésion. Les règles varient selon les programmes et peuvent changer : consultez les conditions actuelles de l’enseigne."
+        ]
+      },
+      {
+        "title": "Éviter l’achat de trop",
+        "paragraphs": [
+          "Dans son analyse de février 2025 du club Vertbaudet, Olivier Dauvers illustre comment seuils et échéances peuvent encourager des visites et achats supplémentaires. Ce cas historique ne décrit pas nécessairement les conditions actuelles. Notre conseil : ne complétez pas un panier uniquement pour débloquer un avantage inférieur à la dépense ajoutée."
+        ]
+      },
+      {
+        "title": "Vérifier après le passage en caisse",
+        "paragraphs": [
+          "Conservez le ticket et l’offre utilisée. Regardez si l’avantage attendu apparaît sur votre compte ; en cas d’écart, demandez une explication au service client avec ces éléments. Notez l’échéance d’utilisation sans vous imposer un nouvel achat inutile."
+        ]
+      }
+    ],
+    "checklist": [
+      "Montant à payer aujourd’hui identifié.",
+      "Conditions et échéance consultées.",
+      "Cagnotte vérifiée après l’achat."
+    ],
+    "sources": [
+      {
+        "label": "Olivier Dauvers — Analyse du club Vertbaudet, 21 février 2025",
+        "url": "https://www.olivierdauvers.fr/2025/02/21/fidelite-le-nouveau-programme-sur-le-fil-mais-seduisant-du-club-vertbaudet/",
+        "kind": "reference"
+      }
+    ]
+  },
+  {
+    "kind": "guides",
+    "slug": "produits-date-courte",
+    "title": "Produits à date courte : acheter utile et respecter la conservation",
+    "description": "Distinguer DLC et DDM avant de choisir une offre anti-gaspillage.",
+    "intro": "La règle d’or : une remise intéressante ne remplace ni la lecture de l’étiquette ni un repas prévu.",
+    "themeId": "achats",
+    "categoryId": "argent-consommation",
+    "reviewedAt": "2026-09-29",
+    "sections": [
+      {
+        "title": "Identifier la date",
+        "paragraphs": [
+          "La mention « À consommer jusqu’au » correspond à une DLC : ne la dépassez pas. « À consommer de préférence avant » indique une DDM : son dépassement n’impose pas systématiquement de jeter le produit si l’emballage est intact et les conditions de conservation respectées. Pour l’alimentation infantile, les qualités nutritionnelles ne sont plus garanties après la DDM."
+        ]
+      },
+      {
+        "title": "Prévoir la consommation",
+        "paragraphs": [
+          "Avant d’acheter, choisissez quand vous utiliserez le produit et vérifiez sa température de conservation. Après ouverture, suivez le délai et les consignes propres à l’étiquette. N’achetez pas plusieurs barquettes si vous ne pourrez pas les consommer à temps."
+        ]
+      },
+      {
+        "title": "Ne pas improviser une conservation",
+        "paragraphs": [
+          "La DGCCRF déconseille de congeler un produit dont la DLC est proche, atteinte ou dépassée. Respectez la chaîne du froid. Une conserve bombée, rouillée ou déformée appelle la prudence : en cas de doute, ne consommez pas son contenu. Une remise n’écarte aucun de ces critères."
+        ]
+      }
+    ],
+    "checklist": [
+      "DLC ou DDM identifiée.",
+      "Repas prévu dans le délai adapté.",
+      "Emballage et conservation contrôlés."
+    ],
+    "sources": [
+      {
+        "label": "DGCCRF — DLC et DDM : ce que vous devez savoir",
+        "url": "https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/date-limite-de-consommation-et-date-de-durabilite-minimale-ce-que-vous-devez-savoir",
+        "kind": "reference"
+      }
+    ]
+  }
+,
 {
   "kind": "guides",
   "slug": "fuite-donnees-personnelles",

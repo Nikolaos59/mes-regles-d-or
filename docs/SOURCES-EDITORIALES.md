@@ -65,3 +65,17 @@ Pistes à instruire : réaction après une fuite de données, comptes de réseau
 ## Guide ajouté le 29 septembre 2026
 
 Fuite de données : protéger ses comptes et déjouer les relances — /guides/fuite-donnees-personnelles. Article ZATAZ « Vos données ont-elles déjà fuité ? » consulté comme inspiration ; recommandations recoupées avec les fiches Cybermalveillance.gouv.fr et CNIL citées dans le guide. Texte original. Aucun service commercial de recherche de fuite recommandé. Disponible en prévisualisation locale ; publication en attente avec les modifications du menu.
+## Source consommation choisie par Nicolas — 29 septembre 2026
+
+[Olivier Dauvers / Éditions Dauvers](https://www.olivierdauvers.fr/) : source éditoriale retenue pour la consommation et la grande distribution. Accueil consulté le 29 septembre 2026 : actualités des enseignes, études et documents Grande Conso, vidéos et podcasts Café Conso. Aucun article précis analysé pour un nouveau guide à ce stade.
+
+Pistes à approfondir : comparaison des prix et formats, promotions et fidélité, achats alimentaires en magasin ou en drive, consigne, pratiques des enseignes. Lire et citer chaque article utilisé, dater les observations et préciser leur périmètre (enseigne, magasin, période). Ne pas généraliser un exemple ponctuel. Rédiger des textes originaux ; recouper les obligations légales et les recours avec la DGCCRF, Service Public ou l’INC. Ne pas présenter les analyses de marché comme des règles de droit ni revendiquer de partenariat.
+
+## Trois guides consommation ajoutés le 29 septembre 2026
+
+- /guides/formats-familiaux-prix-kilo : exemple de calcul fictif ; DGCCRF et quiz Olivier Dauvers du 23 août 2023.
+- /guides/carte-fidelite-cagnotte : conseils de comparaison ; analyse Olivier Dauvers du 21 février 2025, explicitement historique, sans affirmation sur le programme actuel.
+- /guides/produits-date-courte : recommandations DLC/DDM de la DGCCRF.
+
+Sources précises consultées le 29 septembre 2026 et citées dans chaque guide. Textes originaux, disponibles dans la prévisualisation locale.
+
