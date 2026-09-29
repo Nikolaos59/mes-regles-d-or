@@ -55,3 +55,13 @@ France Rénov’ : pages repérées mais leur ouverture a échoué lors de cette
 - Les 75 principes existants restent une collection distincte des guides.
 
 Référence complémentaire pour la gratuité et les frais personnels de médiation : [Ministère de l’Économie — Vos droits](https://www.economie.gouv.fr/mediation-conso/vous-etes-un-consommateur/vos-droits).
+
+## Source cyber proposée par Nicolas — 29 septembre 2026
+
+[ZATAZ — Cybersécurité](https://www.zataz.com/cybersecurite/) : source de veille et d’inspiration éditoriale retenue à la demande de Nicolas. Page consultée le 29 septembre 2026 ; navigation vers les rubriques fuites de données, rançongiciels, vie privée et sécurité des réseaux sociaux. Aucun article précis analysé à ce stade.
+
+Pistes à instruire : réaction après une fuite de données, comptes de réseaux sociaux compromis, logiciels malveillants et rançongiciels. Sélectionner et lire un article précis, conserver son URL et sa date, puis recouper les conseils pratiques avec Cybermalveillance.gouv.fr, l’ANSSI ou la CNIL. Rédiger des synthèses originales et citer ZATAZ lorsque son travail sert au guide. Ne pas ajouter la page de rubrique comme preuve d’un conseil déjà publié.
+
+## Guide ajouté le 29 septembre 2026
+
+Fuite de données : protéger ses comptes et déjouer les relances — /guides/fuite-donnees-personnelles. Article ZATAZ « Vos données ont-elles déjà fuité ? » consulté comme inspiration ; recommandations recoupées avec les fiches Cybermalveillance.gouv.fr et CNIL citées dans le guide. Texte original. Aucun service commercial de recherche de fuite recommandé. Disponible en prévisualisation locale ; publication en attente avec les modifications du menu.

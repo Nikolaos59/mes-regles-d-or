@@ -1,6 +1,74 @@
 import type { Publication } from "@/data/publications";
 
 export const verifiedGuides: readonly Publication[] = [
+{
+  "kind": "guides",
+  "slug": "fuite-donnees-personnelles",
+  "title": "Fuite de données : protéger ses comptes et déjouer les relances",
+  "themeId": "numerique",
+  "categoryId": "cybersecurite",
+  "description": "Identifier les informations exposées et réagir sans tomber dans une seconde arnaque.",
+  "intro": "La règle d’or : vérifiez l’alerte par un canal indépendant, puis adaptez vos démarches aux données réellement concernées. Une fuite peut alimenter des tentatives de fraude longtemps après sa découverte.",
+  "sections": [
+    {
+      "title": "Comprendre ce qui a été exposé",
+      "paragraphs": [
+        "ZATAZ souligne que des informations dispersées peuvent être recoupées pour rendre une escroquerie crédible. Un nom, une ancienne commande ou une adresse exacte ne prouvent donc pas l’identité de la personne qui vous contacte.",
+        "Consultez l’annonce sur le site officiel de l’organisme ou dans votre espace habituel. Demandez quelles données vous concernant ont été touchées. La CNIL déconseille les sites qui prétendent détenir les données et proposent de vérifier votre présence dans la fuite."
+      ]
+    },
+    {
+      "title": "Sécuriser les accès concernés",
+      "paragraphs": [
+        "Changez le mot de passe du service concerné et celui des autres comptes où vous l’aviez réutilisé. Choisissez un mot de passe distinct pour chaque compte et activez l’authentification multifacteur lorsqu’elle est proposée. Procédez depuis l’application ou le site officiel, sans suivre le lien d’un message alarmant."
+      ]
+    },
+    {
+      "title": "Déjouer les messages et appels ciblés",
+      "paragraphs": [
+        "Un appel évoque une fraude et demande un code, un virement ou une validation urgente ? Interrompez l’échange et retrouvez vous-même les coordonnées officielles de l’organisme. Ne confiez pas votre carte bancaire à un coursier envoyé par un prétendu service antifraude."
+      ]
+    },
+    {
+      "title": "Si des coordonnées bancaires ont fuité",
+      "paragraphs": [
+        "Prévenez votre banque si votre IBAN est exposé. Contrôlez régulièrement les opérations et les créanciers autorisés. Signalez immédiatement un prélèvement inconnu et demandez à votre conseiller les démarches adaptées. Une fuite d’IBAN et une carte compromise appellent des mesures différentes : précisez les informations divulguées."
+      ]
+    },
+    {
+      "title": "Garder les preuves et demander de l’aide",
+      "paragraphs": [
+        "Archivez l’alerte, les échanges et les opérations suspectes. En cas d’utilisation frauduleuse, conservez les justificatifs et déposez plainte auprès de la police ou de la gendarmerie. Si vous estimez que l’organisme a insuffisamment sécurisé vos données, une plainte auprès de la CNIL relève d’une démarche distincte. Le service public 17Cyber peut vous orienter."
+      ]
+    }
+  ],
+  "checklist": [
+    "Alerte confirmée auprès de l’organisme concerné.",
+    "Données exposées identifiées.",
+    "Mots de passe concernés remplacés et double authentification activée.",
+    "Opérations bancaires surveillées si nécessaire.",
+    "Messages suspects et justificatifs conservés."
+  ],
+  "reviewedAt": "2026-09-29",
+  "sources": [
+    {
+      "kind": "inspiration",
+      "label": "ZATAZ — Vos données ont-elles déjà fuité ?",
+      "url": "https://www.zataz.com/vos-donnees-ont-elles-deja-fuite/"
+    },
+    {
+      "kind": "reference",
+      "label": "Cybermalveillance.gouv.fr — Fuite de données personnelles : que faire ?",
+      "url": "https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/que-faire-en-cas-de-fuite-de-donnees-personnelles"
+    },
+    {
+      "kind": "reference",
+      "label": "CNIL — Fuite de données et vol de votre IBAN",
+      "url": "https://www.cnil.fr/fr/fuite-de-donnees-sur-internet-et-vol-de-votre-iban-comment-vous-proteger-si-vous-etes-concerne"
+    }
+  ]
+}
+,
   {
     "kind": "guides",
     "slug": "faux-conseiller-bancaire",

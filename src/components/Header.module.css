@@ -1,0 +1,15 @@
+.brandRow { display: flex; align-items: center; justify-content: center; gap: clamp(24px, 5vw, 76px); padding: 14px 16px 10px; background: #fbfbfb; }
+.logo { display: block; flex-shrink: 0; width: 170px; }
+.logo img { display: block; width: 100%; height: auto; }
+.rollingLink { display: block; height: 28px; overflow: hidden; color: #087f7d; font-size: 18px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; line-height: 28px; }
+.roller { display: block; transition: transform .3s ease; }
+.roller > span { display: block; height: 28px; }
+.roller > span:last-child { color: #8f754f; }
+.rollingLink:hover .roller, .rollingLink:focus-visible .roller { transform: translateY(-28px); }
+
+@media (max-width: 540px) {
+  .brandRow { gap: 16px; padding-block: 12px; }
+  .logo { width: 128px; }
+  .rollingLink { font-size: 13px; letter-spacing: 1px; }
+}
+.navigation { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; column-gap: clamp(16px, 3vw, 40px); padding-block: 4px; } .navigation a { white-space: nowrap; } @media (max-width: 540px) { .navigation { column-gap: 20px; padding-block: 2px; } .navigation a { font-size: 14px; padding-block: 9px; } }

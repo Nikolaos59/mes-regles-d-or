@@ -4,21 +4,21 @@
 .lead { max-width: 390px; color: var(--muted); font-size: 17px; }
 .allRules { display: inline-flex; gap: 24px; color: var(--navy); border-bottom: 1px solid var(--gold); padding-bottom: 6px; margin-top: 20px; font-weight: 600; }
 .panels { display: flex; gap: 12px; height: 410px; }
-.panel { position: relative; isolation: isolate; overflow: hidden; flex: 1 1 0; min-width: 0; border-radius: 16px; background: var(--navy); color: white; transition: flex-grow .45s ease; }
+.panel { position: relative; isolation: isolate; overflow: hidden; flex: 1 1 0; min-width: 0; border-radius: 16px; background: var(--navy); color: white; transition: flex-grow .9s cubic-bezier(.4, 0, .2, 1); }
 .photo, .shade { position: absolute; inset: 0; z-index: -1; }
-.photo { background-size: cover; background-position: center; transition: transform .6s ease; }
+.photo { background-size: cover; background-position: center; transition: transform 1.1s cubic-bezier(.4, 0, .2, 1); }
 .shade { background: linear-gradient(180deg, rgba(6,14,24,.08) 20%, rgba(6,14,24,.82) 100%); }
 .copy { position: absolute; bottom: 65px; left: 22px; right: 18px; }
 .panelTitle { display: block; font-size: clamp(1.15rem, 1.8vw, 1.65rem); font-weight: 600; letter-spacing: -.035em; }
 .description { display: block; max-width: 280px; font-size: 14px; line-height: 1.5; margin-top: 10px; }
 .arrow { position: absolute; bottom: 18px; left: 22px; font-size: 22px; }
 .panel:focus-visible { flex-grow: 3.5; outline-offset: 4px; }
-.panel:focus-visible .photo { transform: scale(1.04); }
+.panel:focus-visible .photo { transform: scale(1.025); }
 .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 20px; font-size: 14px; color: var(--muted); }
 .footer a { color: var(--navy); font-weight: 600; }
 @media (hover: hover) and (pointer: fine) and (min-width: 1000px) {
   .panel:hover { flex-grow: 3.5; }
-  .panel:hover .photo { transform: scale(1.04); }
+  .panel:hover .photo { transform: scale(1.025); }
 }
 @media (max-width: 999px) {
   .intro { grid-template-columns: 1fr; gap: 24px; }

@@ -149,7 +149,7 @@ summary::-webkit-details-marker {
     animation-iteration-count: 1 !important;
   }
 }
-[id] { scroll-margin-top: 100px; }
+[id] { scroll-margin-top: 180px; }
 :focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
 
 .skip-link {
