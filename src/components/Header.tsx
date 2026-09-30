@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import CategoryMenu from "./CategoryMenu";
 import styles from "./Header.module.css";
 
 const navigation = [
@@ -49,7 +50,7 @@ export default function Header() {
           className={styles.navigation}
           aria-label="Navigation principale"
         >
-          {navigation.map((item) => (
+          {navigation.map((item) => item.href === "/categories" ? <CategoryMenu key={item.href}/> : (
             <Link
               key={item.href}
               href={item.href}
