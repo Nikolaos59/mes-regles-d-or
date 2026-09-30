@@ -8,6 +8,8 @@
   --navy: #0f172a;
   --charcoal: #111827;
   --gold: #c89a3d;
+  --gold-text: #80601E;
+  --radius-control: 12px;
   --gold-light: #e3c486;
 
   --muted: #6b7280;
@@ -83,7 +85,7 @@ summary::-webkit-details-marker {
   letter-spacing: 0.15em;
   line-height: 1;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .eyebrow::before {
@@ -150,7 +152,7 @@ summary::-webkit-details-marker {
   }
 }
 [id] { scroll-margin-top: 180px; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+:focus-visible { outline: 3px solid #087F7D; outline-offset: 5px; }
 
 .skip-link {
   position: fixed;
