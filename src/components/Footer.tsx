@@ -4,7 +4,7 @@ const footerNavigation = {
   explorer: [
     { label: "Recherche", href: "/recherche" },
     {
-      label: "Les 75 règles",
+      label: "Règles d’or",
       href: "/regles",
     },
     {
