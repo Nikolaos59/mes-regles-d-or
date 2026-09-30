@@ -84,3 +84,75 @@ Sources précises consultées le 29 septembre 2026 et citées dans chaque guide.
 
 Guide /guides/rappel-produit-bons-reflexes : texte original, références Ministère de l’Économie et RappelConso consultées ce jour. Aucun rappel particulier présenté comme actuel ; le lecteur est orienté vers les avis officiels. Tags Achats, Courses et Recours.
 
+
+
+## Lot du 29 septembre 2026 — objectif 100 guides
+
+66 guides ajoutés aux 34 existants. Rédaction originale, trois étapes pratiques et checklist par sujet ; liens de référence consultés le 29 septembre 2026. Les sources sont accessibles dans chaque guide. Aucun texte de podcast repris. Les dates et procédures doivent être revérifiées lors des mises à jour.
+
+- Étude de marché : poser des questions qui éclairent : https://bpifrance-creation.fr/encyclopedie/letude-marche/etapes/realiser-questionnaire-cadre-votre-etude-marche
+- Entretiens clients : écouter avant de présenter son idée : https://bpifrance-creation.fr/encyclopedie/letude-marche/etapes/mener-entretiens-cadre-son-etude-marche
+- SWOT : transformer un diagnostic en actions : https://bpifrance-creation.fr/encyclopedie/letude-marche/outils-danalyse/swot-outil-danalyse-strategique
+- Tableau de bord : suivre les chiffres qui font agir : https://bpifrance-creation.fr/encyclopedie/letude-marche/determiner-sa-strategie/tableau-bord-outil-suivre-levolution-votre
+- Prix de vente : croiser coûts, clients et concurrence : https://bpifrance-creation.fr/encyclopedie/letude-marche/determiner-sa-strategie/comment-fixer-ses-prix-projet-creation
+- Seuil de rentabilité : savoir combien il faut vendre : https://bpifrance-creation.fr/encyclopedie/previsions-financieres-business-plan/previsions-financieres/seuil-rentabilite
+- BFR : financer le temps entre dépenses et encaissements : https://bpifrance-creation.fr/encyclopedie/previsions-financieres-business-plan/previsions-financieres/besoin-fonds-roulement-bfr
+- Démarrage : financer plus que le matériel : https://bpifrance-creation.fr/encyclopedie/previsions-financieres-business-plan/previsions-financieres/plan-financement-initial
+- Marque : vérifier le nom avant de communiquer : https://bpifrance-creation.fr/encyclopedie/trouver-proteger-tester-son-idee/proteger-son-idee/comment-deposer-marque
+- Nom de domaine : garder la maîtrise de son adresse : https://bpifrance-creation.fr/encyclopedie/trouver-proteger-tester-son-idee/proteger-son-idee/nom-domaine
+- Présenter son projet : finir par une demande claire : https://bpifrance-creation.fr/encyclopedie/porteur-projet-preparation-droits-obligations/preparation/presenter-oralement-son
+- Franchise : examiner l’engagement derrière l’enseigne : https://bpifrance-creation.fr/encyclopedie/differentes-facons-dentreprendre/entreprendre-franchise/contrat-franchise
+- Fausse alerte informatique : ne pas appeler le numéro affiché : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/arnaques-au-faux-support-technique
+- Chantage à la webcam : garder son calme et les preuves : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/chantage-a-lordinateur-ou-a-la-webcam-pretendus-pirates
+- Cyberharcèlement : conserver les preuves et se faire aider : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/que-faire-en-cas-de-cyberharcelement-ou-harcelement-en-ligne
+- Rencontre en ligne : refuser les demandes d’argent : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/comment-reagir-en-cas-descroquerie-sentimentale
+- Offre d’emploi : vérifier le recruteur avant d’envoyer ses documents : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/fausses-offres-demploi-creees-par-des-fraudeurs
+- Rançongiciel : isoler les appareils et alerter : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/rancongiciels-ransomwares
+- Mises à jour : ne pas oublier les appareils discrets : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/mises-a-jour
+- Objets connectés : sécuriser avant de les installer : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/securite-objets-connectes-iot
+- Réseaux sociaux : choisir qui voit quoi : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/reseaux-sociaux
+- Téléphone : protéger ce qui tient dans votre poche : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/appareils-mobiles
+- Travail et vie privée : séparer les espaces numériques : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/bonnes-pratiques/securite-usages-pro-perso
+- Virement urgent : vérifier la demande hors du message : https://www.cybermalveillance.gouv.fr/tous-nos-contenus/fiches-reflexes/escroquerie-faux-ordres-virement-fovi
+- Assurance locataire : vérifier ce qui est réellement couvert : https://www.service-public.gouv.fr/particuliers/vosdroits/F31300
+- Quittance de loyer : demander le bon justificatif : https://www.service-public.gouv.fr/particuliers/vosdroits/F2066
+- Quitter sa location : sécuriser la date du préavis : https://www.service-public.gouv.fr/particuliers/vosdroits/F1168
+- Charges locatives : comprendre la régularisation : https://www.service-public.gouv.fr/particuliers/vosdroits/F947
+- Hausse de loyer : vérifier la clause avant le calcul : https://www.service-public.gouv.fr/particuliers/vosdroits/F1311
+- Dossier de location : transmettre seulement les pièces autorisées : https://www.service-public.gouv.fr/particuliers/vosdroits/F1169
+- Colocation : lire la solidarité avant de partager le loyer : https://www.service-public.gouv.fr/particuliers/vosdroits/F34661
+- Se porter caution : mesurer l’engagement avant de signer : https://www.service-public.gouv.fr/particuliers/vosdroits/F31267
+- Sous-location : obtenir l’accord avant de publier l’annonce : https://www.service-public.gouv.fr/particuliers/vosdroits/F2449
+- Locataire : organiser l’entretien courant du logement : https://www.service-public.gouv.fr/particuliers/vosdroits/F31697
+- Voisin bruyant : décrire les faits avant d’escalader : https://www.service-public.gouv.fr/particuliers/vosdroits/F612
+- Déménagement : préparer les démarches des deux logements : https://www.service-public.gouv.fr/particuliers/vosdroits/F14128
+- Auto-école : comparer le contrat, pas seulement le forfait : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/auto-ecole
+- Voiture neuve : relire le bon de commande ligne par ligne : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/achat-dun-vehicule-neuf-quelles-sont-les-obligations-du-vendeur
+- Contrôle technique : lire le procès-verbal, pas seulement la vignette : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/controle-technique-comment-proceder
+- Covoiturage : clarifier frais, trajet et assurance : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/covoiturage-la-reglementation-applicable
+- LOA : regarder au-delà du loyer mensuel : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/location-avec-option-dachat-loa-dun-vehicule-quelles-sont-les-regles-connaitre
+- Dépannage sur autoroute : distinguer forfait et suppléments : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/vehicules-que-faire-en-cas-de-panne-sur-autoroute
+- Garage : écrire ce que vous autorisez à réparer : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques-et-les-faq/vehicule-automobile-lordre-de-reparation-decrit-la-nature
+- Avion annulé ou retardé : garder les preuves du voyage : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/voyager-en-avion-quels-droits-pour-les-passagers
+- Train en retard : conserver le billet et l’heure d’arrivée : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/voyager-en-train-les-regles-connaitre
+- Voyage organisé : lire ce que le forfait inclut : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/voyages-et-sejours-forfait-les-points-verifier
+- Taxi ou VTC : comprendre le prix avant de monter : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/taxis-vtc-motos-pro-ce-quil-faut-savoir
+- Trottinette électrique : vérifier l’usage autorisé avant l’achat : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/trottinettes-electriques-les-conseils-pour-un-achat-et-une-utilisation-en-toute-securite
+- Travail sur écran : régler le poste autour de vous : https://www.inrs.fr/risques/travail-ecran/prevention-risques
+- Bruit au travail : agir d’abord sur la source : https://www.inrs.fr/risques/bruit/demarche-prevention
+- Surcharge au travail : rendre les difficultés discutables : https://www.inrs.fr/risques/stress/prevention
+- Travail isolé : préparer l’alerte avant l’intervention : https://www.inrs.fr/risques/travail-isole/reglementation
+- Glissades au travail : corriger l’environnement : https://www.inrs.fr/risques/chutes-de-plain-pied/definition-et-caracteristiques.html
+- Port de charges : réduire l’effort avant de corriger le geste : https://www.inrs.fr/risques/lombalgies/prevention
+- Nouveau collègue : organiser un accueil utile dès le premier jour : https://www.inrs.fr/demarche/nouveaux-embauches/ce-qu-il-faut-retenir.html
+- Incendie au travail : connaître le parcours avant l’alarme : https://www.inrs.fr/risques/incendie-lieu-travail/evacuation-intervention-consignes-securite.html
+- Déplacement professionnel : prévoir le temps de rouler : https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html
+- Produits chimiques au travail : identifier avant d’utiliser : https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html
+- Article soldé : distinguer retour commercial et garantie : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/soldes-droit-des-consommateurs-et-obligations-des-commercants?post_id=noID
+- Reconditionné : demander l’état réel du produit : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/produits-reconditionnes-quoi-faut-il-preter-attention-avant-dacheter
+- Avis en ligne : lire les détails derrière les étoiles : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/avis-en-ligne-attention-aux-faux-commentaires
+- Abonnement : aller jusqu’à la confirmation de résiliation : https://presse.economie.gouv.fr/01062023-cp-entree-en-vigueur-de-la-resiliation-en-ligne-des-contrats-en-trois-clics/
+- Foire ou salon : ne pas signer pour simplement réserver un prix : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/le-contrat-un-accord-entre-des-parties-bien-informees-au-prealable
+- Comparateur en ligne : vérifier ce que signifie la première place : https://www.economie.gouv.fr/particuliers/emprunter-et-sassurer/comparateurs-en-ligne-quelles-sont-les-obligations-dinformation
+- Démarchage à domicile : garder du temps pour décider : https://www.economie.gouv.fr/dgccrf/les-fiches-pratiques/faq-contrats-conclus-hors-etablissement-et-demarchage-domicile
+- Labels alimentaires : savoir ce que le logo garantit : https://www.economie.gouv.fr/particuliers/mes-droits-conso/alimentation/aop-aoc-igp-ab-ce-quil-faut-savoir-sur-les-labels-de?language=fr
