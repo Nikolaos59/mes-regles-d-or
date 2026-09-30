@@ -8,7 +8,7 @@ import styles from "./Header.module.css";
 const navigation = [
   { label: "Recherche", href: "/recherche" },
   {
-    label: "Les 75 règles",
+    label: "Les 100 règles",
     href: "/regles",
   },
   {
