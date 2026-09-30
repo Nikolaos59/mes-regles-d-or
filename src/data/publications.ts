@@ -304,10 +304,19 @@ export const publications: readonly Publication[] = [
 },
 {
   "slug": "acheter-une-voiture-occasion",
-  "title": "Voiture d’occasion : vérifier avant de s’engager",
-  "description": "Croiser les documents, l’historique et l’état du véhicule plutôt que se fier à une annonce rassurante.",
-  "intro": "Une visite se prépare avant de partir. Demandez les documents disponibles et notez les questions qui conditionnent votre décision. Le temps consacré aux vérifications fait partie de l’achat.",
+  "title": "N’achetez jamais une voiture d’occasion sur le prix seul.",
+  "description": "Vérifier le véhicule, son historique et son vendeur avant de considérer le prix comme une bonne affaire.",
+  "intro": "Une voiture très bon marché peut cacher des réparations importantes, un historique douteux ou un vendeur peu fiable. Avant de payer, vérifiez toujours le véhicule et celui qui vous le vend.",
   "sections": [
+    {
+      "title": "Le principe",
+      "paragraphs": [
+        "Une bonne affaire ne se mesure pas seulement à la différence entre le prix affiché et la cote du véhicule.",
+        "Avant tout achat, vérifiez l’identité du vendeur, l’existence réelle de l’entreprise s’il s’agit d’un professionnel, l’historique du véhicule, son kilométrage, son entretien, ses documents et son état mécanique.",
+        "Méfiez-vous particulièrement d’un véhicule vendu uniquement sur quelques photos, d’un prix anormalement bas, d’un vendeur difficile à joindre ou d’un professionnel qui refuse les vérifications élémentaires.",
+        "Les paiements doivent également être cohérents avec le vendeur figurant sur les documents. Lorsque vous achetez à une société, un paiement ou un remboursement passant par le compte personnel d’un dirigeant doit vous inciter à demander des explications et des justificatifs."
+      ]
+    },
     {
       "title": "Préparer la visite",
       "paragraphs": [
@@ -333,9 +342,17 @@ export const publications: readonly Publication[] = [
         "Exemple fictif : l’annonce décrit une voiture parfaitement entretenue, mais les factures récentes manquent. Ce n’est pas une preuve de fraude ; c’est une incertitude à résoudre avant de prendre un engagement. Demandez les éléments disponibles et décidez si ce niveau d’incertitude vous convient.",
         "Conservez les documents de vente et les engagements écrits. Pour un achat engageant votre budget, mieux vaut renoncer à une offre insuffisamment documentée que considérer une remise comme une réponse aux questions restées ouvertes."
       ]
+    },
+    {
+      "title": "À retenir",
+      "paragraphs": [
+        "Une voiture bon marché n’est une bonne affaire que si le véhicule, son histoire et son vendeur sont vérifiables."
+      ]
     }
   ],
   "checklist": [
+    "L’identité du vendeur et, le cas échéant, son entreprise sont vérifiées.",
+    "Le destinataire du paiement correspond au vendeur ; toute incohérence a été clarifiée.",
     "L’annonce et les documents sont cohérents.",
     "Le rapport HistoVec a été demandé.",
     "Le contrôle technique applicable a été lu.",
