@@ -2,6 +2,7 @@ import type { Publication } from "@/data/publications";
 import { publicationTheme } from "@/data/publication-themes";
 
 export const tags = [
+  {slug:"tourisme",label:"Tourisme"},
   {slug:"budget",label:"Budget"}, {slug:"promotions",label:"Promotions"},
   {slug:"courses",label:"Courses"}, {slug:"cybersecurite",label:"Cybersécurité"},
   {slug:"donnees-personnelles",label:"DonnéesPersonnelles"}, {slug:"arnaques",label:"Arnaques"},
@@ -103,7 +104,7 @@ const extras: Record<string, readonly TagSlug[]> = {
   "tresorerie-anticiper":["budget"],
 };
 export function publicationTags(item: Publication) {
-  const themeTags: Record<string, TagSlug> = {logement:"logement",travaux:"travaux",automobile:"automobile",achats:"achats",numerique:"cybersecurite",travail:"decisions",projets:"entreprendre"};
+  const themeTags: Record<string, TagSlug> = {tourisme:"tourisme",ia:"ia",logement:"logement",travaux:"travaux",automobile:"automobile",achats:"achats",numerique:"cybersecurite",travail:"decisions",projets:"entreprendre"};
   const base = item.categoryId === "ia-numerique" ? "ia" : themeTags[publicationTheme(item).id];
   const slugs = new Set<TagSlug>([base, ...(extras[item.slug] ?? [])]);
   return tags.filter(tag=>slugs.has(tag.slug));

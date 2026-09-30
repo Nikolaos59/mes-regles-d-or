@@ -5,7 +5,7 @@ import styles from "./Hero.module.css";
 const panels = [
   { title: "Chantier", description: "Choisir un artisan, suivre ses travaux.", href: "/guides#travaux", image: "/images/accueil/plans_construction.webp" },
   { title: "Voiture", description: "Acheter et louer avec les bons réflexes.", href: "/guides#automobile", image: "/images/accueil/vente_automobile.webp" },
-  { title: "Voyage", description: "Location de voiture : partir bien préparé.", href: "/guides/location-voiture-etat", image: "/images/accueil/voyage.webp" },
+  { title: "Voyage", description: "Transports, réservations et séjours : préparer son départ.", href: "/tourisme", image: "/images/accueil/voyage.webp" },
   { title: "E-commerce", description: "Acheter en ligne et connaître ses recours.", href: "/guides#achats", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
   { title: "Journal", description: "Prendre du recul sur ses décisions.", href: "/blog", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
 ] as const;
