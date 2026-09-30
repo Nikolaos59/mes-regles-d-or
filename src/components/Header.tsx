@@ -5,8 +5,6 @@ import Image from "next/image";
 import styles from "./Header.module.css";
 
 const navigation = [
-  { label: "Tourisme", href: "/tourisme" },
-  { label: "IA", href: "/ia" },
   { label: "Recherche", href: "/recherche" },
   {
     label: "Les 75 règles",
