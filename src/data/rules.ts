@@ -213,7 +213,73 @@ const aiRules = [
   ],
 ] as const satisfies readonly RuleSeed[];
 
-const managementRules = [
+
+const additionalCybersecurityRules = [
+  [
+    "Un mot de passe visible est déjà un mot de passe compromis.",
+    "Un secret exposé ne doit plus être considéré comme secret.",
+    "Si un mot de passe a été affiché, photographié, envoyé au mauvais destinataire ou rendu accessible à quelqu’un d’autre, considérez-le comme compromis et remplacez-le immédiatement.",
+  ],
+  [
+    "Une demande inhabituelle doit toujours être vérifiée par un autre canal.",
+    "Une demande crédible peut tout de même venir d’un compte ou d’un interlocuteur compromis.",
+    "Lorsqu’une demande sort des habitudes, confirmez-la par un moyen de contact indépendant et déjà connu avant d’agir ou de transmettre une information sensible.",
+  ],
+  [
+    "Plus une demande vous pousse à agir vite, plus vous devez prendre le temps de la vérifier.",
+    "La pression réduit la vigilance et favorise les erreurs.",
+    "Une urgence inhabituelle est une raison de ralentir. Vérifiez les faits, l’identité de l’interlocuteur et la destination de votre action avant de continuer.",
+  ],
+  [
+    "Un QR Code n’est pas un lien de confiance : vérifiez sa destination avant de l’ouvrir.",
+    "Un QR Code masque l’adresse vers laquelle il vous envoie.",
+    "Avant de suivre un QR Code reçu sur une affiche, un courrier, un message ou un emballage, vérifiez la destination affichée et privilégiez le site officiel lorsque vous avez un doute.",
+  ],
+  [
+    "Ne collez jamais une commande trouvée sur Internet dans votre terminal sans savoir exactement ce qu’elle fait.",
+    "Une commande peut modifier, supprimer ou transmettre des données sans que son apparence ne le révèle.",
+    "Avant d’exécuter une commande, comprenez ses effets, sa source et les droits qu’elle utilise. En cas de doute, ne l’exécutez pas sur votre machine principale.",
+  ],
+  [
+    "Une donnée qui a fuité doit être considérée comme compromise.",
+    "Une information exposée peut être copiée et réutilisée longtemps après la fuite.",
+    "Après une fuite, changez les secrets concernés, surveillez les comptes associés et évitez de considérer la donnée exposée comme confidentielle à nouveau.",
+  ],
+  [
+    "Une sauvegarde jamais restaurée n’est qu’une promesse.",
+    "Une sauvegarde n’est utile que si elle peut réellement être récupérée.",
+    "Testez régulièrement la restauration de vos sauvegardes et vérifiez que les fichiers essentiels sont bien récupérables, dans un délai acceptable.",
+  ],
+  [
+    "Avant de transmettre une donnée personnelle, demandez-vous si le service en a réellement besoin.",
+    "Réduire les données partagées réduit aussi l’exposition en cas d’incident.",
+    "Ne fournissez que les informations nécessaires au service demandé. Si une donnée semble disproportionnée, cherchez à comprendre pourquoi elle est demandée avant de la transmettre.",
+  ],
+  [
+    "L’apparence officielle d’un message ne prouve jamais son authenticité.",
+    "Logo, signature, mise en page et vocabulaire peuvent être reproduits.",
+    "Ne vous fiez pas à l’apparence d’un message. Vérifiez l’expéditeur réel, le domaine, les coordonnées et la demande par un canal indépendant lorsqu’un enjeu existe.",
+  ],
+  [
+    "Une information peut devenir sensible lorsqu’elle est recoupée avec d’autres.",
+    "Des informations anodines prises séparément peuvent permettre d’identifier, cibler ou usurper une personne une fois réunies.",
+    "Avant de publier ou transmettre une information, considérez ce qu’elle permet de déduire lorsqu’elle est combinée avec vos autres informations déjà accessibles.",
+  ],
+] as const satisfies readonly RuleSeed[];
+
+const additionalAiRules = [
+  [
+    "Une IA ne doit jamais devenir le coffre-fort de données que vous n’auriez pas le droit de partager.",
+    "La facilité d’utilisation d’un outil ne change pas le niveau de confidentialité d’une donnée.",
+    "Avant de transmettre un contenu à une IA, vérifiez que vous êtes autorisé à le partager et que le service utilisé est adapté à son niveau de sensibilité.",
+  ],
+  [
+    "Une réponse d’IA n’est pas une preuve : vérifiez toujours ce qui compte.",
+    "Une réponse bien formulée peut contenir une erreur, une approximation ou une information inventée.",
+    "Pour toute information qui influence une décision importante, retournez à une source vérifiable et contrôlez les faits essentiels avant de vous appuyer sur la réponse.",
+  ],
+] as const satisfies readonly RuleSeed[];
+\nconst managementRules = [
   [
     "Dites clairement ce qui est attendu.",
     "L'ambiguïté coûte plus cher que la clarté.",
@@ -453,6 +519,8 @@ export const rules: readonly Rule[] = [
   ...buildRules("management-travail", 31, managementRules),
   ...buildRules("argent-consommation", 46, moneyRules),
   ...buildRules("entrepreneuriat", 61, businessRules),
+  ...buildRules("cybersecurite", 76, additionalCybersecurityRules),
+  ...buildRules("ia-numerique", 86, additionalAiRules),
 ];
 
 export function getRuleBySlug(slug: string): Rule | undefined {
