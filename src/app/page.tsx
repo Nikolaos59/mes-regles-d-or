@@ -9,11 +9,11 @@ import Hero from "@/components/Hero";
 
 export const metadata = {
   ...createPageMetadata({
-    title: "Mes Règles d’Or — 75 règles simples pour mieux décider",
+    title: "Mes Règles d’Or — 87 règles simples pour mieux décider",
     description: siteDescription,
     path: "/",
   }),
-  title: { absolute: "Mes Règles d’Or — 75 règles simples pour mieux décider" },
+  title: { absolute: "Mes Règles d’Or — 87 règles simples pour mieux décider" },
 };
 
 export default function HomePage() {
