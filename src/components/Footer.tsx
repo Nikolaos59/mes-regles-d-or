@@ -73,7 +73,7 @@ export default function Footer() {
             </Link>
 
             <p className="mt-7 max-w-xs text-[15px] leading-7 text-white/55">
-              75 principes simples et intemporels pour prendre de meilleures
+              82 principes simples et intemporels pour prendre de meilleures
               décisions dans un monde de plus en plus complexe.
             </p>
 

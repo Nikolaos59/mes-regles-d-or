@@ -13,6 +13,15 @@
   },
   "workers_dev": true,
   "vars": {
-    "SITE_NOINDEX": "true"
-  }
+    "SITE_NOINDEX": "true",
+    "ADMIN_EMAIL": "nikobackland@msn.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mes-regles-d-or-editorial",
+      "database_id": "29f949ae-2b05-4f68-b283-17bd267b589d",
+      "migrations_dir": "migrations"
+    }
+  ]
 }

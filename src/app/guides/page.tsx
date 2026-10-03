@@ -1,11 +1,13 @@
+export const dynamic="force-dynamic";
 import Link from "next/link";
 import { createPageMetadata } from "@/lib/seo";
-import { publications } from "@/data/publications";
+import { getPublications } from "@/lib/content-store";
 import { publicationThemes, publicationTheme } from "@/data/publication-themes";
 import PublicationCard from "@/components/PublicationCard";
 import ThemeIcon from "@/components/ThemeIcon";
 export const metadata = createPageMetadata({title:"Guides pratiques",description:"Trouvez un guide par situation : logement, travaux, automobile, achats, numérique, travail et entrepreneuriat.",path:"/guides"});
-export default function Page() {
+export default async function Page() {
+ const publications=await getPublications();
  const guides=publications.filter(item=>item.kind==="guides");
  const themes=publicationThemes.filter(theme=>guides.some(item=>publicationTheme(item).id===theme.id));
  return <main className="container-mro py-10 sm:py-16"><nav aria-label="Fil d’Ariane" className="mb-8 flex gap-3 text-sm"><Link href="/">Accueil</Link><span aria-hidden="true">/</span><span aria-current="page">Guides pratiques</span></nav>

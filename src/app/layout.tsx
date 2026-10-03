@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  ...createPageMetadata({ title: "Mes Règles d’Or — 75 règles simples pour mieux décider", description: siteDescription, path: "/" }),
+  ...createPageMetadata({ title: "Mes Règles d’Or — 82 règles simples pour mieux décider", description: siteDescription, path: "/" }),
   metadataBase: siteOrigin ? new URL(siteOrigin) : undefined,
   alternates: undefined,
   title: {
-    default: "Mes Règles d’Or — 75 règles simples pour mieux décider",
+    default: "Mes Règles d’Or — 82 règles simples pour mieux décider",
     template: "%s | Mes Règles d’Or",
   },
   authors: [{ name: "Mes Règles d’Or" }],

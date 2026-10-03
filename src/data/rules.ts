@@ -6,6 +6,7 @@ export type RuleCategoryId =
   | "entrepreneuriat";
 
 export type Rule = {
+  order?: number; subcategory?: string;
   id: number;
   number: string;
   slug: string;
@@ -53,6 +54,7 @@ function buildRules(
       summary,
       detail,
       categoryId,
+      order: id - 1,
     };
   });
 }
@@ -61,12 +63,12 @@ const cybersecurityRules = [
   [
     "Ne prenez jamais une décision importante sous pression.",
     "L'urgence est l'un des outils les plus efficaces pour faire baisser votre vigilance.",
-    "Lorsqu'une personne, un message ou un site vous pousse à décider immédiatement, ralentissez volontairement. Vérifiez l'information par un autre canal et accordez-vous quelques minutes avant toute action irréversible.",
+    "Lorsqu'une personne, un message ou un site vous pousse à décider immédiatement, ralentissez volontairement. Vérifiez l'information par un autre canal et accordez-vous quelques minutes avant toute action irréversible.\n\n« Paiement immédiat », « compte bientôt bloqué » ou « dernier avertissement » cherchent parfois à déclencher une réaction avant la réflexion. Une urgence peut être réelle, mais elle ne doit jamais supprimer la vérification.\n\nLe bon réflexe : si une demande vous presse, faites une pause, relisez-la et contrôlez son origine avant de répondre, payer ou cliquer.\n\nRègle d'Or : Plus une demande vous pousse à agir vite, plus vous devez prendre le temps de la vérifier.",
   ],
   [
     "Vérifiez l'identité avant de faire confiance.",
     "Un nom, un logo ou une photo ne prouvent jamais l'identité de votre interlocuteur.",
-    "Avant de transmettre une information sensible, de payer ou de modifier un accès, utilisez un moyen indépendant pour confirmer que vous parlez bien à la bonne personne ou à la bonne organisation.",
+    "Avant de transmettre une information sensible, de payer ou de modifier un accès, utilisez un moyen indépendant pour confirmer que vous parlez bien à la bonne personne ou à la bonne organisation.\n\nUne signature, un logo, des couleurs familières ou un ton professionnel peuvent être reproduits. Un message qui semble venir d'un collègue, d'un fournisseur, d'une banque ou d'une administration n'est donc pas automatiquement authentique. Pour une demande d'argent, de coordonnées ou d'information sensible, répondre au message ne suffit pas.\n\nLe bon réflexe : confirmez la demande par un numéro habituel ou un contact officiel dont vous connaissiez déjà les coordonnées.\n\nRègle d'Or : Une demande inhabituelle doit toujours être vérifiée par un autre canal.",
   ],
   [
     "Utilisez un mot de passe unique pour chaque service.",
@@ -144,12 +146,12 @@ const aiRules = [
   [
     "Vérifiez toute information importante produite par une IA.",
     "Une réponse convaincante peut malgré tout être incorrecte.",
-    "Pour une décision importante, vérifiez les chiffres, dates, citations et affirmations auprès d'une source fiable avant de les utiliser.",
+    "Pour une décision importante, vérifiez les chiffres, dates, citations et affirmations auprès d'une source fiable avant de les utiliser. Une IA peut mélanger des informations, inventer une référence, mal interpréter un document ou présenter une réponse dépassée, même si son texte paraît assuré.\n\nLe bon réflexe : utilisez l'IA pour chercher ou réfléchir, puis contrôlez les faits importants auprès de sources fiables.\n\nRègle d'Or : Une réponse d'IA n'est pas une preuve : vérifiez toujours ce qui compte.",
   ],
   [
     "Ne confiez pas à une IA ce que vous ne publieriez pas.",
     "Une donnée sensible mérite un niveau de prudence supérieur.",
-    "Avant de transmettre un document, un secret commercial ou une information personnelle, vérifiez les conditions du service et supprimez les éléments inutiles.",
+    "Avant de transmettre un document, un secret commercial ou une information personnelle, vérifiez les conditions du service et supprimez les éléments inutiles. Les contrats, les données clients, les informations bancaires ou les secrets professionnels peuvent avoir des conséquences importantes s'ils sortent de leur environnement prévu.\n\nLe bon réflexe : vérifiez les règles de confidentialité du service et demandez-vous si vous pourriez confier cette information à un tiers.\n\nRègle d'Or : Une IA ne doit jamais devenir le coffre-fort de données que vous n'auriez pas le droit de partager.",
   ],
   [
     "Utilisez l'IA pour augmenter votre jugement, pas pour le remplacer.",
@@ -447,12 +449,28 @@ const businessRules = [
   ],
 ] as const satisfies readonly RuleSeed[];
 
+const addedCybersecurityRules = [
+  ["Un mot de passe visible est déjà un mot de passe compromis.", "Un secret aperçu dans une photo, une capture ou un document partagé ne l'est plus.", "Un post-it posé sur un bureau, une capture d'écran, une photo publiée en ligne ou un document partagé peuvent révéler un mot de passe sans aucune attaque informatique. Le risque augmente encore si ce secret est réutilisé sur plusieurs services.\n\nLe bon réflexe : considérez comme compromis tout mot de passe vu par une autre personne. Remplacez-le et utilisez un secret différent pour chaque service important.\n\nRègle d'Or : Un mot de passe visible est déjà un mot de passe compromis."],
+  ["Un QR Code n'est pas un lien de confiance.", "Son apparence ne garantit pas que sa destination est sûre.", "Un QR Code peut renvoyer vers un site légitime ou vers une imitation conçue pour récupérer un mot de passe ou des coordonnées bancaires. L'adresse réelle est souvent moins visible qu'un lien classique.\n\nLe bon réflexe : vérifiez la destination avant de vous connecter ou de transmettre la moindre information.\n\nRègle d'Or : Un QR Code n'est pas un lien de confiance : vérifiez sa destination avant de l'ouvrir."],
+  ["Ne collez pas une commande que vous ne comprenez pas.", "Une commande peut modifier vos fichiers ou transmettre des informations.", "Une commande ou un script présenté comme une solution rapide peut installer un programme, modifier des fichiers ou transmettre des informations sans que vous le remarquiez. Une présentation sérieuse ne garantit pas son innocuité.\n\nLe bon réflexe : comprenez ce que fait une commande et vérifiez sa provenance avant de l'exécuter. En cas de doute, ne l'exécutez pas.\n\nRègle d'Or : Ne collez jamais une commande trouvée sur Internet dans votre terminal sans savoir exactement ce qu'elle fait."],
+  ["Une donnée qui a fuité doit être considérée comme compromise.", "Une donnée divulguée peut être recoupée et réutilisée bien plus tard.", "Une adresse e-mail, un numéro de téléphone ou une ancienne information personnelle peuvent être associés à d'autres données et réutilisés longtemps après l'incident. Une donnée sortie de votre contrôle ne peut plus être considérée comme secrète.\n\nLe bon réflexe : après une fuite, remplacez les informations qui peuvent l'être et restez attentif aux messages, appels et tentatives de connexion inhabituels.\n\nRègle d'Or : Une donnée qui a fuité doit être considérée comme compromise."],
+  ["Une sauvegarde jamais restaurée n'est qu'une promesse.", "Seule une restauration permet de savoir si vos fichiers sont récupérables.", "Un disque peut être défectueux, une archive corrompue ou une sauvegarde rendue inaccessible par une attaque. Un statut « réussi » ne prouve pas que vos fichiers pourront être récupérés.\n\nLe bon réflexe : restaurez régulièrement quelques fichiers et vérifiez qu'ils sont bien utilisables.\n\nRègle d'Or : Une sauvegarde jamais restaurée n'est qu'une promesse."],
+  ["Une information anodine peut devenir sensible une fois recoupée.", "Des détails publiés séparément peuvent révéler bien plus une fois réunis.", "Votre prénom, votre ville, votre métier, une photo ou le nom de votre entreprise peuvent sembler inoffensifs pris séparément. Associés, ces détails peuvent révéler vos habitudes, vos relations ou votre lieu de travail et faciliter une tentative de manipulation.\n\nLe bon réflexe : avant de publier, pensez à ce qu'une personne pourrait déduire en combinant cette information avec tout ce qui est déjà accessible.\n\nRègle d'Or : Une information anodine seule peut devenir sensible une fois recoupée avec d'autres."],
+
+] as const satisfies readonly RuleSeed[];
+
+const addedDigitalRules = [
+  ["Avant de transmettre une donnée personnelle, vérifiez qu'elle est nécessaire.", "Un formulaire qui demande une information ne prouve pas qu'elle est indispensable.", "Une date de naissance, une adresse, un numéro de téléphone ou une copie de document peuvent être conservés, recoupés ou compromis. Le fait qu'un champ existe ne signifie pas que vous devez le remplir.\n\nLe bon réflexe : demandez-vous à quoi sert la donnée et si le service en a réellement besoin avant de la transmettre.\n\nRègle d'Or : Avant de transmettre une donnée personnelle, demandez-vous si le service en a réellement besoin."],
+] as const satisfies readonly RuleSeed[];
+
 export const rules: readonly Rule[] = [
   ...buildRules("cybersecurite", 1, cybersecurityRules),
   ...buildRules("ia-numerique", 16, aiRules),
   ...buildRules("management-travail", 31, managementRules),
   ...buildRules("argent-consommation", 46, moneyRules),
   ...buildRules("entrepreneuriat", 61, businessRules),
+  ...buildRules("cybersecurite", 76, addedCybersecurityRules),
+  ...buildRules("ia-numerique", 82, addedDigitalRules),
 ];
 
 export function getRuleBySlug(slug: string): Rule | undefined {

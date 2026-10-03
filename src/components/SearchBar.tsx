@@ -20,7 +20,7 @@ export default function SearchBar({ query = "", categoryId = "" }: SearchBarProp
         </div>
         <button type="submit" className="h-14 cursor-pointer rounded-full bg-[#0F172A] px-7 text-base font-semibold text-white transition-colors hover:bg-[#24324B]">Rechercher →</button>
       </div>
-      <p id="search-help" className="mt-4 text-sm leading-6 text-[#6B7280]">Explorez les 75 règles, les guides pratiques et le journal. Les accents et les majuscules ne changent pas les résultats.</p>
+      <p id="search-help" className="mt-4 text-sm leading-6 text-[#6B7280]">Explorez les 82 règles, les guides pratiques et le journal. Les accents et les majuscules ne changent pas les résultats.</p>
     </form>
   );
 }

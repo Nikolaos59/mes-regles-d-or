@@ -17,13 +17,36 @@ const { categories } = await loadTypeScript("../src/data/categories.ts");
 const { searchRules, readSearchParam, MAX_QUERY_LENGTH } = await loadTypeScript("../src/lib/search.ts");
 const ids = (query, category = "") => searchRules(rules, categories, query, category).map((rule) => rule.id);
 
-test("collection: 75 unique rules, 15 per official category", () => {
-  assert.equal(rules.length, 75);
-  assert.equal(new Set(rules.map((rule) => rule.slug)).size, 75);
-  assert.deepEqual(rules.map((rule) => rule.id), Array.from({ length: 75 }, (_, i) => i + 1));
+test("collection: 82 unique rules, existing category distribution", () => {
+  assert.equal(rules.length, 82);
+  assert.equal(new Set(rules.map((rule) => rule.slug)).size, 82);
+  assert.deepEqual(rules.map((rule) => rule.id), Array.from({ length: 82 }, (_, i) => i + 1));
   assert.equal(categories.length, 5);
-  for (const category of categories) assert.equal(ids("", category.id).length, 15);
+  for (const category of categories) {
+    const count = ids("", category.id).length;
+    assert.equal(count, category.id === "cybersecurite" ? 21 : category.id === "ia-numerique" ? 16 : 15);
+    assert.equal(category.ruleCount, count);
+  }
   assert.equal(rules[0].slug, "01-ne-jamais-decider-sous-pression");
+});
+
+test("added rules include editorial text, a reflex and a final golden rule", () => {
+  const addedRules = rules.slice(75);
+  assert.equal(addedRules.length, 7);
+  for (const rule of addedRules) {
+    assert.ok(rule.title.trim());
+    assert.ok(rule.summary.trim());
+    assert.match(rule.detail, /Le bon réflexe :/);
+    assert.match(rule.detail, /Règle d'Or\s*:/);
+  }
+});
+
+test("merged articles preserve all 12 ideas without duplicate rules", () => {
+  for (const id of [1, 2, 17, 18]) {
+    const rule = rules.find((item) => item.id === id);
+    assert.match(rule.detail, /Le bon réflexe :/);
+    assert.match(rule.detail, /Règle d'Or\s*:/);
+  }
 });
 
 test("search ignores accents, case, extra whitespace and apostrophe variants", () => {
@@ -36,7 +59,7 @@ test("search ignores accents, case, extra whitespace and apostrophe variants", (
 test("terms can match across fields and are combined with the category", () => {
   assert.ok(ids("cybersecurite pression").includes(1));
   assert.deepEqual(ids("pression", "entrepreneuriat"), []);
-  assert.equal(ids("cybersecurite").length, 15);
+  assert.equal(ids("cybersecurite").length, 21);
   assert.ok(ids("gestionnaire").includes(3));
 });
 
@@ -47,7 +70,7 @@ test("internal identifiers are not searchable rule numbers", () => {
 });
 
 test("empty search returns everything; unknown terms and categories return nothing", () => {
-  assert.equal(ids("   ").length, 75);
+  assert.equal(ids("   ").length, 82);
   assert.deepEqual(ids("xyzintrouvable"), []);
   assert.deepEqual(ids("", "inconnu"), []);
 });

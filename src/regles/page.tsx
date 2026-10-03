@@ -8,9 +8,9 @@ import {
 } from "@/data/rules";
 
 export const metadata: Metadata = {
-  title: "Les 75 règles",
+  title: "Les 82 règles",
   description:
-    "Découvrez les 75 règles d'or pour mieux décider, se protéger, travailler, gérer son argent, utiliser l'IA et entreprendre.",
+    "Découvrez les 82 règles d'or pour mieux décider, se protéger, travailler, gérer son argent, utiliser l'IA et entreprendre.",
 };
 
 export default function RulesPage() {
@@ -23,7 +23,7 @@ export default function RulesPage() {
           </p>
 
           <h1 className="mt-7 text-balance text-[clamp(3.2rem,7vw,6.5rem)] font-medium leading-[0.95] tracking-[-0.065em] text-[#111827]">
-            75 règles simples.
+            82 règles simples.
             <br />
             Des repères pour durer.
           </h1>
@@ -81,7 +81,7 @@ export default function RulesPage() {
                   </p>
 
                   <p className="mt-5 text-[14px] font-semibold text-[#0F172A]">
-                    15 règles
+                    {categoryRules.length} règles
                   </p>
                 </div>
               </div>

@@ -1,9 +1,8 @@
+export const dynamic="force-dynamic";
 import { notFound } from "next/navigation";
-import { publications } from "@/data/publications";
+import { getPublications } from "@/lib/content-store";
 import { createPageMetadata } from "@/lib/seo";
 import PublicationArticle from "@/components/PublicationArticle";
 type Props = {params: Promise<{slug:string}>};
-const items = publications.filter(item=>item.kind === "blog");
-export function generateStaticParams() {return items.map(({slug})=>({slug}));}
-export async function generateMetadata({params}: Props) {const {slug}=await params;const item=items.find(p=>p.slug===slug);if(!item)notFound();return createPageMetadata({title:item.title,description:item.description,path:`/blog/${item.slug}`,type:"article"});}
-export default async function Page({params}: Props) {const {slug}=await params;const item=items.find(p=>p.slug===slug);if(!item)notFound();return <PublicationArticle item={item}/>;}
+export async function generateMetadata({params}: Props) {const {slug}=await params;const item=(await getPublications()).filter(p=>p.kind==="blog").find(p=>p.slug===slug);if(!item)notFound();return createPageMetadata({title:item.title,description:item.description,path:`/blog/${item.slug}`,type:"article"});}
+export default async function Page({params}: Props) {const {slug}=await params;const item=(await getPublications()).filter(p=>p.kind==="blog").find(p=>p.slug===slug);if(!item)notFound();return <PublicationArticle item={item}/>;}

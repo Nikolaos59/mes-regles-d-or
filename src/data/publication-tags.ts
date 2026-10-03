@@ -104,6 +104,7 @@ const extras: Record<string, readonly TagSlug[]> = {
   "tresorerie-anticiper":["budget"],
 };
 export function publicationTags(item: Publication) {
+  if(item.tagSlugs) return tags.filter(tag=>item.tagSlugs!.includes(tag.slug));
   const themeTags: Record<string, TagSlug> = {tourisme:"tourisme",ia:"ia",logement:"logement",travaux:"travaux",automobile:"automobile",achats:"achats",numerique:"cybersecurite",travail:"decisions",projets:"entreprendre"};
   const base = item.categoryId === "ia-numerique" ? "ia" : themeTags[publicationTheme(item).id];
   const slugs = new Set<TagSlug>([base, ...(extras[item.slug] ?? [])]);

@@ -1,11 +1,12 @@
+export const dynamic="force-dynamic";
 import { createPageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import RuleCard from "@/components/RuleCard";
 import PublicationCard from "@/components/PublicationCard";
 import SearchBar from "@/components/SearchBar";
 import { categories } from "@/data/categories";
-import { rules } from "@/data/rules";
-import { publications } from "@/data/publications";
+import { getRules } from "@/lib/content-store";
+import { getPublications } from "@/lib/content-store";
 import { readSearchParam, searchRules, searchPublications } from "@/lib/search";
 
 export const metadata = createPageMetadata({
@@ -15,6 +16,7 @@ export const metadata = createPageMetadata({
 });
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 export default async function SearchPage({ searchParams }: Props) {
+  const [rules,publications]=await Promise.all([getRules(),getPublications()]);
   const params = await searchParams;
   const query = readSearchParam(params.q);
   const requestedCategory = readSearchParam(params.categorie);

@@ -1,4 +1,5 @@
-import { publications } from "@/data/publications";
+export const dynamic="force-dynamic";
+import { getPublications } from "@/lib/content-store";
 import PublicationCard from "@/components/PublicationCard";
 import { createPageMetadata, siteDescription } from "@/lib/seo";
 import Link from "next/link";
@@ -9,18 +10,19 @@ import Hero from "@/components/Hero";
 
 export const metadata = {
   ...createPageMetadata({
-    title: "Mes Règles d’Or — 75 règles simples pour mieux décider",
+    title: "Mes Règles d’Or — 82 règles simples pour mieux décider",
     description: siteDescription,
     path: "/",
   }),
-  title: { absolute: "Mes Règles d’Or — 75 règles simples pour mieux décider" },
+  title: { absolute: "Mes Règles d’Or — 82 règles simples pour mieux décider" },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+ const publications=await getPublications();
   return (
     <main>
       <Hero />
-      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Des réponses à des situations concrètes.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{["faux-conseiller-bancaire", "colis-livre-introuvable", "proprietaire-refuse-travaux"].flatMap(slug=>publications.filter(item=>item.slug===slug && item.kind === "guides")).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/guides" className="mt-8 inline-block font-semibold underline underline-offset-4">Voir les 100 guides →</Link></section>
+      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Des réponses à des situations concrètes.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind==="guides" && (item.homeRank??0)>0).sort((a,b)=>(a.homeRank??0)-(b.homeRank??0)).slice(0,3).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/guides" className="mt-8 inline-block font-semibold underline underline-offset-4">Voir les 100 guides →</Link></section>
 
       <section className="container-mro pb-12" aria-labelledby="home-categories"><h2 id="home-categories" className="text-2xl font-semibold">Explorer par catégorie</h2><nav aria-label="Catégories" className="mt-6 flex flex-wrap gap-x-7 gap-y-3">{[{label:"Cybersécurité",href:"/categories/cybersecurite"},{label:"IA & Numérique",href:"/ia"},{label:"Travail",href:"/categories/management-travail"},{label:"Argent & consommation",href:"/categories/argent-consommation"},{label:"Entreprendre",href:"/categories/entrepreneuriat"},{label:"Tourisme",href:"/tourisme"}].map(item=><Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center font-medium underline underline-offset-4">{item.label}</Link>)}</nav></section>
 

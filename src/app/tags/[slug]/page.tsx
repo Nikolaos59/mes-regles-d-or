@@ -1,18 +1,19 @@
+export const dynamic="force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { publications } from "@/data/publications";
+import { getPublications } from "@/lib/content-store";
 import { tags, publicationTags } from "@/data/publication-tags";
 import PublicationCard from "@/components/PublicationCard";
 import { createPageMetadata } from "@/lib/seo";
 
 type Props = {params: Promise<{slug:string}>};
-const usedTags=tags.filter(tag=>publications.some(item=>publicationTags(item).some(t=>t.slug===tag.slug)));
-export function generateStaticParams() {return usedTags.map(({slug})=>({slug}));}
 export async function generateMetadata({params}: Props) {
+  const publications=await getPublications(); const usedTags=tags.filter(tag=>publications.some(item=>publicationTags(item).some(t=>t.slug===tag.slug)));
   const {slug}=await params; const tag=usedTags.find(t=>t.slug===slug); if(!tag)notFound();
   return createPageMetadata({title:"#"+tag.label,description:"Tous nos articles associés au tag #"+tag.label+".",path:"/tags/"+slug});
 }
 export default async function Page({params}: Props) {
+  const publications=await getPublications(); const usedTags=tags.filter(tag=>publications.some(item=>publicationTags(item).some(t=>t.slug===tag.slug)));
   const {slug}=await params; const tag=usedTags.find(t=>t.slug===slug); if(!tag)notFound();
   const items=publications.filter(item=>publicationTags(item).some(t=>t.slug===slug));
   return <main className="container-mro section-mro">

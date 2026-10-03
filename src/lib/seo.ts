@@ -1,7 +1,7 @@
 import type { Metadata, MetadataRoute } from "next";
 
 export const siteName = "Mes Règles d’Or";
-export const siteDescription = "75 principes clairs et intemporels pour mieux gérer son argent, travailler, utiliser le numérique, se protéger et entreprendre.";
+export const siteDescription = "82 principes clairs et intemporels pour mieux gérer son argent, travailler, utiliser le numérique, se protéger et entreprendre.";
 
 export function resolveSiteOrigin(value: string | undefined): string | undefined {
   if (!value?.trim()) return undefined;
@@ -28,7 +28,7 @@ type PageMetadata = {
 
 export function createPageMetadata({ title, description, path, type = "website", noindex = false }: PageMetadata): Metadata {
   const url = siteOrigin ? new URL(path, siteOrigin).href : undefined;
-  const images = siteOrigin ? [{ url: `${siteOrigin}/share-card.png`, width: 1200, height: 630, alt: "Mes Règles d’Or — 75 règles simples pour mieux décider" }] : undefined;
+  const images = siteOrigin ? [{ url: `${siteOrigin}/share-card.png`, width: 1200, height: 630, alt: "Mes Règles d’Or — 82 règles simples pour mieux décider" }] : undefined;
   return {
     title,
     description,

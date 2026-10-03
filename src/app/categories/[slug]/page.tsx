@@ -1,10 +1,11 @@
+export const dynamic="force-dynamic";
 import { createPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import RuleCard from "@/components/RuleCard";
 import { categories } from "@/data/categories";
-import { getRulesByCategory } from "@/data/rules";
+import { getRulesByCategory } from "@/lib/content-store";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -23,7 +24,7 @@ export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
   const category = categories.find((item) => item.id === slug);
   if (!category) notFound();
-  const rules = getRulesByCategory(category.id);
+  const rules = await getRulesByCategory(category.id);
   return (
     <main className="container-mro section-mro">
       <nav aria-label="Fil d’Ariane" className="mb-10 text-sm text-[#6B7280]"><Link href="/categories">Catégories</Link><span aria-hidden="true"> / </span><span aria-current="page">{category.shortName}</span></nav>
@@ -33,7 +34,7 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {rules.map((rule) => <RuleCard key={rule.id} rule={rule} />)}
       </div>
-      <Link href="/regles" className="mt-12 inline-block font-semibold underline underline-offset-4">Explorer les 75 règles →</Link>
+      <Link href="/regles" className="mt-12 inline-block font-semibold underline underline-offset-4">Explorer les 82 règles →</Link>
     </main>
   );
 }

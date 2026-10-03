@@ -1,0 +1,60 @@
+"use client";
+import { useEffect, useState } from 'react';
+import { categories } from '@/data/categories';
+import { publicationThemes, publicationTheme } from '@/data/publication-themes';
+import { tags, publicationTags } from '@/data/publication-tags';
+import type { Content, RecordRow } from '@/lib/cms-types';
+import styles from './AdminEditor.module.css';
+type Revision={id:string;version:number;action:string;actor:string;created_at:string};
+export default function AdminEditor({actor}:{actor:string}){
+ const [rows,setRows]=useState<RecordRow[]>([]),[query,setQuery]=useState(''),[filter,setFilter]=useState(''),[archived,setArchived]=useState(false);
+ const [row,setRow]=useState<RecordRow|null>(null),[value,setValue]=useState<Content|null>(null),[history,setHistory]=useState<Revision[]>([]);
+ const [dirty,setDirty]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState('Chargement…'),[preview,setPreview]=useState(false);
+ const parse=async(r:Response)=>{const data=await r.json();if(!r.ok)throw Error(data.error??'Erreur de chargement.');return data;};
+ const refresh=async()=>{const data=await parse(await fetch('/admin/api?archived=1',{cache:'no-store'}));setRows(data.rows);};
+ useEffect(()=>{fetch('/admin/api?archived=1',{cache:'no-store'}).then(parse).then(data=>{setRows(data.rows);setMessage('');}).catch(e=>setMessage(e.message));},[]);
+ useEffect(()=>{const prevent=(e:BeforeUnloadEvent)=>{if(dirty)e.preventDefault();};window.addEventListener('beforeunload',prevent);return()=>window.removeEventListener('beforeunload',prevent);},[dirty]);
+ const select=async(id:string)=>{if(dirty&&!confirm('Abandonner les modifications non enregistrées ?'))return;setBusy(true);try{const data=await parse(await fetch('/admin/api?id='+encodeURIComponent(id)+'&archived=1',{cache:'no-store'}));load(data.row);setHistory(data.history);setMessage('');}catch(e){setMessage(String(e));}finally{setBusy(false);}};
+ const create=async(type:'rule'|'guides'|'blog')=>{const title=window.prompt(type==='rule'?'Titre de la règle':'Titre du contenu');if(!title?.trim())return;setBusy(true);try{const data=await parse(await fetch('/admin/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',type,title})}));await refresh();setArchived(false);await select(data.id);setMessage('Brouillon créé. Complétez-le puis enregistrez.');}catch(e){setMessage(String(e));}finally{setBusy(false);}};
+ const load=(r:RecordRow)=>{const v=JSON.parse(r.draft_json) as Content;if('kind' in v){v.themeId??=publicationTheme(v).id;v.tagSlugs??=publicationTags(v).map(t=>t.slug);}setRow(r);setValue(v);setDirty(false);setPreview(false);};
+ const patch=(changes:Partial<Content>)=>{setValue(v=>v?{...v,...changes} as Content:null);setDirty(true);};
+ const action=async(name:string,revisionId?:string)=>{
+  if(!row||!value)return;
+  if(name==='publish'&&!confirm('Publier cette version sur le site ?'))return;
+  if(name==='unpublish'&&!confirm('Retirer cette page du site public ? Son brouillon sera conservé.'))return;
+  if(name==='archive'&&!confirm('Archiver ce contenu ? Il sera retiré du site et pourra être restauré.'))return;
+  if(name==='unarchive'&&!confirm('Restaurer ce contenu dans la liste active ?'))return;
+  if(name==='restore'&&dirty&&!confirm('Remplacer les modifications non enregistrées par cette ancienne version ?'))return;
+  setBusy(true);try{
+   await parse(await fetch('/admin/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:row.id,version:row.version,action:name,content:value,revisionId})}));
+   const data=await parse(await fetch('/admin/api?id='+encodeURIComponent(row.id)+'&archived=1',{cache:'no-store'}));load(data.row);setHistory(data.history);await refresh();setMessage(name==='publish'?'Version publiée.':name==='restore'?'Ancienne version restaurée en brouillon.':name==='unpublish'?'Page retirée du site public.':name==='archive'?'Contenu archivé.':name==='unarchive'?'Contenu restauré.':'Brouillon enregistré. Le site public reste inchangé.');
+  }catch(e){setMessage(String(e));}finally{setBusy(false);}
+ };
+ const field=(label:string,key:'title'|'subcategory',large=false)=><label>{label}{large?<textarea value={String(value?.[key]??'')} onChange={e=>patch({[key]:e.target.value})}/>:<input value={String(value?.[key]??'')} onChange={e=>patch({[key]:e.target.value})}/>}</label>;
+ const candidates=rows.filter(r=>{const v=JSON.parse(r.draft_json) as Content;return Boolean(r.deleted_at)===archived&&(!filter||(filter==='draft'?r.draft_json!==r.published_json:filter==='regles'?!('kind' in v):'kind'in v&&v.kind===filter))&&[v.title,v.categoryId,v.subcategory??''].join(' ').toLocaleLowerCase('fr').includes(query.toLocaleLowerCase('fr'));});
+ return <main className={styles.admin}>
+ <header><p className={styles.eyebrow}>Espace éditorial</p><h1>Gérer les contenus</h1><p>{actor==='local-editor'?'Aperçu local — les publications restent sur cet ordinateur.':actor} · {rows.length} contenus</p></header>
+ <p role="status" aria-live="polite" className={styles.status}>{message}{dirty?' · Modifications non enregistrées':''}</p>
+ <div className={styles.layout}><aside className={styles.library}><button disabled={busy} onClick={()=>create('rule')}>+ Nouvelle règle</button><button disabled={busy} onClick={()=>create('guides')}>+ Nouveau guide</button><button disabled={busy} onClick={()=>create('blog')}>+ Nouvel article</button><label>Rechercher un titre<input type="search" value={query} onChange={e=>setQuery(e.target.value)}/></label><label>Afficher<select value={filter} onChange={e=>setFilter(e.target.value)}><option value="">Tous les contenus</option><option value="regles">Règles</option><option value="guides">Guides</option><option value="blog">Journal</option><option value="draft">Brouillons à publier</option></select></label><label><span>Voir les contenus archivés</span><input type="checkbox" checked={archived} onChange={e=>setArchived(e.target.checked)}/></label><p>{candidates.length} résultats</p><ul>{candidates.map(r=>{const v=JSON.parse(r.draft_json) as Content;return <li key={r.id}><button disabled={busy} aria-current={row?.id===r.id?'true':undefined} onClick={()=>select(r.id)}><strong>{v.title}</strong><small>{'kind'in v?v.kind==='guides'?'Guide':'Journal':'Règle'} · {r.deleted_at?'Archivé':r.published_json===null?'Hors ligne':r.published_json!==r.draft_json?'Brouillon modifié':'Publié'}</small></button></li>;})}</ul></aside>
+ <section className={styles.editor} aria-label="Fiche de contenu">{!value||!row?<p>Sélectionnez un contenu pour le corriger ou le reclasser.</p>:<>
+ <div className={styles.toolbar}><button disabled={busy||Boolean(row.deleted_at)} onClick={()=>action('save')}>Enregistrer le brouillon</button><button disabled={busy} onClick={()=>setPreview(!preview)}>{preview?'Revenir à l’édition':'Aperçu du brouillon'}</button>{row.deleted_at?<button disabled={busy} onClick={()=>action('unarchive')}>Restaurer le contenu</button>:<><button className={styles.primary} disabled={busy} onClick={()=>action('publish')}>Publier</button><button disabled={busy} onClick={()=>action('archive')}>Archiver</button></>}</div>
+ <p className={styles.address}>Adresse conservée : /{row.id} · Version {row.version}</p>
+ {preview?<article className={styles.preview}><p>Brouillon — non publié</p><h2>{value.title}</h2>{'kind'in value?<><p>{value.intro}</p>{value.sections.map((s,i)=><section key={i}><h3>{s.title}</h3>{s.paragraphs.map((p,j)=><p key={j}>{p}</p>)}</section>)}<h3>Checklist</h3><ul>{value.checklist.map((p,i)=><li key={i}>{p}</li>)}</ul><h3>Sources</h3><ul>{value.sources?.map((s,i)=><li key={i}>{s.label} — {s.url}</li>)}</ul></>:<><p>{value.summary}</p><p>{value.detail}</p></>}</article>:<fieldset disabled={busy}>
+ {field('Titre','title',true)}
+ <div className={styles.two}><label>Domaine des règles<select value={value.categoryId} onChange={e=>patch({categoryId:e.target.value as Content['categoryId']})}>{categories.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label>{'kind'in value&&<label>Catégorie des guides<select value={value.themeId} onChange={e=>patch({themeId:e.target.value as typeof value.themeId})}>{publicationThemes.map(t=><option key={t.id} value={t.id}>{t.label}</option>)}</select></label>}</div>
+ <div className={styles.two}>{field('Sous-catégorie (ex. Acheter, Vendre)','subcategory')}<label>Ordre dans les listes (plus petit = plus haut)<input type="number" min="0" max="10000" value={value.order??0} onChange={e=>patch({order:Number(e.target.value)})}/></label></div>
+ {'kind'in value?<>
+ <label>Résumé de la carte<textarea value={value.description} onChange={e=>patch({description:e.target.value})}/></label>
+ <label>Introduction<textarea value={value.intro} onChange={e=>patch({intro:e.target.value})}/></label>
+ <h2>Sections</h2>{value.sections.map((s,i)=><div className={styles.block} key={i}><label>Titre de section<input value={s.title} onChange={e=>patch({sections:value.sections.map((x,j)=>j===i?{...x,title:e.target.value}:x)})}/></label><label>Paragraphes (une ligne vide entre deux paragraphes)<textarea rows={7} value={s.paragraphs.join('\n\n')} onChange={e=>patch({sections:value.sections.map((x,j)=>j===i?{...x,paragraphs:e.target.value.split(/\n\s*\n/)}:x)})}/></label><button type="button" onClick={()=>patch({sections:value.sections.filter((_,j)=>j!==i)})}>Retirer cette section</button></div>)}<button onClick={()=>patch({sections:[...value.sections,{title:'Nouvelle section',paragraphs:['']} ]})}>Ajouter une section</button>
+ <label>Checklist (un point par ligne)<textarea rows={5} value={value.checklist.join('\n')} onChange={e=>patch({checklist:e.target.value.split('\n')})}/></label>
+ <h2>Sources</h2>{(value.sources??[]).map((s,i)=><div className={styles.block} key={i}><label>Nom<input value={s.label} onChange={e=>patch({sources:value.sources?.map((x,j)=>i===j?{...x,label:e.target.value}:x)})}/></label><label>Adresse HTTPS<input type="url" value={s.url} onChange={e=>patch({sources:value.sources?.map((x,j)=>i===j?{...x,url:e.target.value}:x)})}/></label><label>Usage<select value={s.kind} onChange={e=>patch({sources:value.sources?.map((x,j)=>i===j?{...x,kind:e.target.value as typeof s.kind}:x)})}><option value="reference">Référence</option><option value="inspiration">Inspiration</option></select></label><button onClick={()=>patch({sources:value.sources?.filter((_,j)=>i!==j)})}>Retirer la source</button></div>)}<button onClick={()=>patch({sources:[...(value.sources??[]),{label:'',url:'',kind:'reference'}]})}>Ajouter une source</button>
+ <label>Sources vérifiées le<input type="date" value={value.reviewedAt??''} onChange={e=>patch({reviewedAt:e.target.value})}/></label>
+ <label>Position sur l’accueil (0 = non sélectionné)<input type="number" min="0" max="100" value={value.homeRank??0} onChange={e=>patch({homeRank:Number(e.target.value)})}/></label>
+ <fieldset><legend>Hashtags</legend><div className={styles.tags}>{tags.map(t=><label key={t.slug}><input type="checkbox" checked={value.tagSlugs?.includes(t.slug)??false} onChange={e=>patch({tagSlugs:e.target.checked?[...(value.tagSlugs??[]),t.slug]:(value.tagSlugs??[]).filter(x=>x!==t.slug)})}/>{t.label}</label>)}</div></fieldset>
+ </>:<><label>Résumé<textarea rows={4} value={value.summary} onChange={e=>patch({summary:e.target.value})}/></label><label>Le principe<textarea rows={10} value={value.detail} onChange={e=>patch({detail:e.target.value})}/></label></>}
+ </fieldset>}
+ <details className={styles.history}><summary>Historique et restauration ({history.length})</summary><p>Restaurer crée un brouillon. Il faut ensuite le publier.</p>{history.map(h=><div key={h.id}><span>Version {h.version} · {new Date(h.created_at).toLocaleString('fr-FR')} · {h.action} · {h.actor}</span><button disabled={busy} onClick={()=>action('restore',h.id)}>Restaurer en brouillon</button></div>)}</details>
+ {row.published_json&&<button disabled={busy} onClick={()=>action('unpublish')}>Retirer du site public</button>}
+ </>}</section></div></main>;
+}

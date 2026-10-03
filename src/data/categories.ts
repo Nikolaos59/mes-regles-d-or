@@ -27,7 +27,7 @@ export const categories: readonly Category[] = [
       "Se protéger des fraudes, des arnaques et des mauvaises pratiques numériques.",
     href: "/categories/cybersecurite",
     icon: "shield",
-    ruleCount: 15,
+    ruleCount: 21,
     number: "01",
   },
   {
@@ -38,7 +38,7 @@ export const categories: readonly Category[] = [
       "Utiliser la technologie et l'intelligence artificielle avec méthode et discernement.",
     href: "/categories/ia-numerique",
     icon: "spark",
-    ruleCount: 15,
+    ruleCount: 16,
     number: "02",
   },
   {
