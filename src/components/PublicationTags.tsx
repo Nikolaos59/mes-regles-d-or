@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Publication } from "@/data/publications";
+import type { Publication } from "@/lib/editorial-types";
 import { publicationTags } from "@/data/publication-tags";
 
 export default function PublicationTags({item}: {item: Publication}) {

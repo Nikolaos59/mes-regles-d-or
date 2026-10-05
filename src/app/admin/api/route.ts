@@ -1,9 +1,7 @@
 import { getBindings } from '@/lib/platform';
 import { authenticate, sameOrigin } from '@/lib/admin-auth';
 import { validateContent } from '@/lib/cms-validation';
-import { rules } from '@/data/rules';
-import { publications } from '@/data/publications';
-import { publicationTheme } from '@/data/publication-themes';
+import type { Rule, Publication } from '@/lib/editorial-types';
 import type { RecordRow, Content } from '@/lib/cms-types';
 export const dynamic='force-dynamic';
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow'}});
@@ -27,9 +25,9 @@ export async function POST(request:Request){
    let id:string,content:Content;
    if(body.type==='rule'){
     const existing=await db.prepare("SELECT draft_json FROM content WHERE id LIKE 'regles/%'").all<{draft_json:string}>();const next=Math.max(0,...existing.results.map(r=>Number((JSON.parse(r.draft_json) as {id?:number}).id)||0))+1;const number=String(next).padStart(2,'0'),ruleSlug=`${number}-${slug}`;id=`regles/${ruleSlug}`;
-    const original={...rules[0],id:next,number,slug:ruleSlug,title:body.title.trim(),summary:'Résumé à rédiger.',detail:'Texte éditorial à rédiger.',order:next-1,homeRank:0};content=validateContent(original,original);
+    const original:Rule={id:next,number,slug:ruleSlug,title:body.title.trim(),summary:'Résumé à rédiger.',detail:'Texte éditorial à rédiger.',categoryId:'cybersecurite',order:next-1,homeRank:0};content=validateContent(original,original);
    }else{
-    id=`${body.type}/${slug}`;const original={...publications[0],kind:body.type,themeId:publicationTheme(publications[0]).id,slug,title:body.title.trim(),description:'Résumé à rédiger.',intro:'Introduction à rédiger.',sections:[{title:'À compléter',paragraphs:['Texte à rédiger.']}],checklist:[],sources:[],order:9999,homeRank:0,tagSlugs:[]} as Content;content=validateContent(original,original);
+    id=`${body.type}/${slug}`;const original:Publication={kind:body.type,themeId:'numerique',slug,title:body.title.trim(),description:'Résumé à rédiger.',categoryId:'ia-numerique',intro:'Introduction à rédiger.',sections:[{title:'À compléter',paragraphs:['Texte à rédiger.']}],checklist:[],sources:[],order:9999,homeRank:0,tagSlugs:[]};content=validateContent(original,original);
    }
    const now=new Date().toISOString(),change=crypto.randomUUID(),draft=JSON.stringify(content);
    try{await db.batch([db.prepare('INSERT INTO content(id,draft_json,published_json,version,updated_at,updated_by,last_change,deleted_at) VALUES(?,?,NULL,1,?,?,?,NULL)').bind(id,draft,now,actor,change),db.prepare('INSERT INTO revisions(id,content_id,version,snapshot_json,action,actor,created_at) VALUES(?,?,1,?,?,?,?)').bind(change,id,draft,'create',actor,now)]);}catch{return json({error:'Un contenu portant cette adresse existe déjà.'},409);}

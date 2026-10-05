@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {rules.map((rule) => <RuleCard key={rule.id} rule={rule} />)}
       </div>
-      <Link href="/regles" className="mt-12 inline-block font-semibold underline underline-offset-4">Explorer les 82 règles →</Link>
+      <Link href="/regles" className="mt-12 inline-block font-semibold underline underline-offset-4">Explorer toutes les règles →</Link>
     </main>
   );
 }

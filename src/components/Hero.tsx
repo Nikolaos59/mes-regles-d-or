@@ -21,7 +21,7 @@ export default function Hero() {
           </div>
           <div className={styles.lead}>
             <p>Arnaque, achat, logement : trouvez les démarches à suivre et les points à vérifier avant d’agir.</p>
-            <Link href="/guides" className={styles.allRules}>Parcourir les 100 guides <span aria-hidden="true">↗</span></Link>
+            <Link href="/guides" className={styles.allRules}>Parcourir tous les guides <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
         <form action="/recherche" method="get" role="search" className={styles.search}>

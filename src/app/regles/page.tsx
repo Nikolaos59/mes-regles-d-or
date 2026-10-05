@@ -9,15 +9,16 @@ import {
 } from "@/lib/content-store";
 
 export const metadata = createPageMetadata({
-  title: "Les 82 règles",
+  title: "Les règles d’or",
   description:
-    "Découvrez les 82 règles d'or pour mieux décider, se protéger, travailler, gérer son argent, utiliser l'IA et entreprendre.",
+    "Découvrez des règles d'or pour mieux décider, se protéger, travailler, gérer son argent, utiliser l'IA et entreprendre.",
   path: "/regles",
   noindex: false,
 });
 
 export default async function RulesPage() {
  const grouped=await Promise.all(categories.map(c=>getRulesByCategory(c.id)));
+ const total=grouped.reduce((sum,items)=>sum+items.length,0);
   return (
     <main>
       <section className="container-mro pb-20 pt-20 lg:pb-24 lg:pt-28">
@@ -27,7 +28,7 @@ export default async function RulesPage() {
           </p>
 
           <h1 className="mt-7 text-balance text-[clamp(3.2rem,7vw,6.5rem)] font-medium leading-[0.95] tracking-[-0.065em] text-[#111827]">
-            82 règles simples.
+            {total} règles simples.
             <br />
             Des repères pour durer.
           </h1>
@@ -85,7 +86,7 @@ export default async function RulesPage() {
                   </p>
 
                   <p className="mt-5 text-[14px] font-semibold text-[#0F172A]">
-                    {categoryRules.length} règles
+                    {categoryRules.length} {categoryRules.length===1?"règle":"règles"}
                   </p>
                 </div>
               </div>

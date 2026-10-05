@@ -1,5 +1,5 @@
 export const dynamic="force-dynamic";
-import { getPublications } from "@/lib/content-store";
+import { getPublications, getRules } from "@/lib/content-store";
 import PublicationCard from "@/components/PublicationCard";
 import { createPageMetadata, siteDescription } from "@/lib/seo";
 import Link from "next/link";
@@ -10,23 +10,24 @@ import Hero from "@/components/Hero";
 
 export const metadata = {
   ...createPageMetadata({
-    title: "Mes Règles d’Or — 82 règles simples pour mieux décider",
+    title: "Mes Règles d’Or — des repères pour mieux décider",
     description: siteDescription,
     path: "/",
   }),
-  title: { absolute: "Mes Règles d’Or — 82 règles simples pour mieux décider" },
+  title: { absolute: "Mes Règles d’Or — des repères pour mieux décider" },
 };
 
 export default async function HomePage() {
- const publications=await getPublications();
+ const [publications,rules]=await Promise.all([getPublications(),getRules()]);
+ const featuredRule=rules.find(rule=>(rule.homeRank??0)>0)??rules[0];
   return (
     <main>
       <Hero />
-      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Des réponses à des situations concrètes.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind==="guides" && (item.homeRank??0)>0).sort((a,b)=>(a.homeRank??0)-(b.homeRank??0)).slice(0,3).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/guides" className="mt-8 inline-block font-semibold underline underline-offset-4">Voir les 100 guides →</Link></section>
+      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Des réponses à des situations concrètes.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind==="guides" && (item.homeRank??0)>0).sort((a,b)=>(a.homeRank??0)-(b.homeRank??0)).slice(0,3).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/guides" className="mt-8 inline-block font-semibold underline underline-offset-4">Voir tous les guides →</Link></section>
 
       <section className="container-mro pb-12" aria-labelledby="home-categories"><h2 id="home-categories" className="text-2xl font-semibold">Explorer par catégorie</h2><nav aria-label="Catégories" className="mt-6 flex flex-wrap gap-x-7 gap-y-3">{[{label:"Cybersécurité",href:"/categories/cybersecurite"},{label:"IA & Numérique",href:"/ia"},{label:"Travail",href:"/categories/management-travail"},{label:"Argent & consommation",href:"/categories/argent-consommation"},{label:"Entreprendre",href:"/categories/entrepreneuriat"},{label:"Tourisme",href:"/tourisme"}].map(item=><Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center font-medium underline underline-offset-4">{item.label}</Link>)}</nav></section>
 
-      <section className="container-mro py-5 sm:py-7">
+      {featuredRule&&<section className="container-mro py-5 sm:py-7">
         <div className="relative overflow-hidden rounded-[28px] bg-[#0F172A] px-7 py-16 text-white sm:rounded-[32px] sm:px-12 sm:py-20 lg:px-20 lg:py-24">
           <div
             className="pointer-events-none absolute -right-[180px] -top-[240px] h-[540px] w-[540px] rounded-full border border-white/[0.05]"
@@ -49,17 +50,15 @@ export default async function HomePage() {
               <div className="gold-line" />
 
               <blockquote className="mt-8 text-balance text-[clamp(2.4rem,4.8vw,4.9rem)] font-medium leading-[1.03] tracking-[-0.05em] text-white">
-                « Ne prenez jamais une décision importante sous pression. »
+                « {featuredRule.title} »
               </blockquote>
 
               <p className="mt-9 max-w-[680px] text-[17px] leading-8 text-white/60">
-                L&apos;urgence réduit notre capacité à comparer, vérifier et
-                réfléchir. Une décision importante mérite presque toujours un
-                temps de recul.
+                {featuredRule.summary}
               </p>
 
               <Link
-                href="/regles/01-ne-jamais-decider-sous-pression"
+                href={`/regles/${featuredRule.slug}`}
                 className="mt-10 inline-flex items-center gap-3 text-[15px] font-semibold text-[#E3C486] transition-colors hover:text-white"
               >
                 Lire la règle complète
@@ -68,7 +67,7 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       <section className="section-mro">
         <div className="container-mro">

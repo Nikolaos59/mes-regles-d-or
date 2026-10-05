@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { categories } from "@/data/categories";
-import type { Rule } from "@/data/rules";
+import type { Rule } from "@/lib/editorial-types";
 
 type RuleCardProps = {
   rule: Rule;

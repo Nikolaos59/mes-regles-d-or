@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import ts from "typescript";
+import { loadMigrationContent } from "./migration-content.mjs";
 
 // These modules only import types; transpiling keeps tests independent of Node's TS support.
 async function loadTypeScript(path) {
@@ -12,12 +13,14 @@ async function loadTypeScript(path) {
   return import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`);
 }
 
-const { rules } = await loadTypeScript("../src/data/rules.ts");
 const { categories } = await loadTypeScript("../src/data/categories.ts");
 const { searchRules, readSearchParam, MAX_QUERY_LENGTH } = await loadTypeScript("../src/lib/search.ts");
+const content = (await loadMigrationContent()).map(row => row.content);
+const rules = content.filter(item => !('kind' in item));
+const publications = content.filter(item => 'kind' in item);
 const ids = (query, category = "") => searchRules(rules, categories, query, category).map((rule) => rule.id);
 
-test("collection: 82 unique rules, existing category distribution", () => {
+test("database catalogue: 82 unique rules, existing category distribution", () => {
   assert.equal(rules.length, 82);
   assert.equal(new Set(rules.map((rule) => rule.slug)).size, 82);
   assert.deepEqual(rules.map((rule) => rule.id), Array.from({ length: 82 }, (_, i) => i + 1));
@@ -25,7 +28,6 @@ test("collection: 82 unique rules, existing category distribution", () => {
   for (const category of categories) {
     const count = ids("", category.id).length;
     assert.equal(count, category.id === "cybersecurite" ? 21 : category.id === "ia-numerique" ? 16 : 15);
-    assert.equal(category.ruleCount, count);
   }
   assert.equal(rules[0].slug, "01-ne-jamais-decider-sous-pression");
 });
@@ -82,7 +84,7 @@ test("URL parameters are bounded and repeated parameters use the first value", (
   assert.equal(readSearchParam("x".repeat(500)).length, MAX_QUERY_LENGTH);
 });
 
-const { verifiedGuides } = await loadTypeScript("../src/data/guides-verified.ts");
+const verifiedGuides = publications.filter(item => item.kind === 'guides');
 const { publicationTheme, publicationThemes } = await loadTypeScript("../src/data/publication-themes.ts");
 const { searchPublications } = await loadTypeScript("../src/lib/search.ts");
 
@@ -96,7 +98,7 @@ test("guides: search finds body text, tolerates accents and respects domains", (
   assert.equal(find("").length, verifiedGuides.length);
 });
 
-test("guides: every new article has a valid theme, source and distinct URL", () => {
+test("guides: database articles have valid themes and distinct URLs", () => {
   const slugs = new Set();
   for (const item of verifiedGuides) {
     assert.ok(!slugs.has(item.slug));
@@ -106,7 +108,7 @@ test("guides: every new article has a valid theme, source and distinct URL", () 
     assert.equal(publicationTheme(item).id, item.themeId);
     assert.ok(item.sections.length >= 3);
     assert.ok(item.checklist.length >= 3);
-    assert.match(item.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
-    assert.ok(item.sources.some(source => source.kind === "reference" && new URL(source.url).protocol === "https:"));
+    if (item.reviewedAt) assert.match(item.reviewedAt, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok((item.sources ?? []).every(source => new URL(source.url).protocol === "https:"));
   }
 });

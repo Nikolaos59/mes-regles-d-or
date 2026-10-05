@@ -1,4 +1,4 @@
-import type { RuleCategoryId } from "@/data/rules";
+import type { RuleCategoryId } from "@/lib/editorial-types";
 
 export type CategoryIcon =
   | "shield"
@@ -14,7 +14,6 @@ export type Category = {
   description: string;
   href: string;
   icon: CategoryIcon;
-  ruleCount: number;
   number: string;
 };
 
@@ -27,7 +26,6 @@ export const categories: readonly Category[] = [
       "Se protéger des fraudes, des arnaques et des mauvaises pratiques numériques.",
     href: "/categories/cybersecurite",
     icon: "shield",
-    ruleCount: 21,
     number: "01",
   },
   {
@@ -38,7 +36,6 @@ export const categories: readonly Category[] = [
       "Utiliser la technologie et l'intelligence artificielle avec méthode et discernement.",
     href: "/categories/ia-numerique",
     icon: "spark",
-    ruleCount: 16,
     number: "02",
   },
   {
@@ -49,7 +46,6 @@ export const categories: readonly Category[] = [
       "Mieux communiquer, collaborer, décider et avancer dans son environnement professionnel.",
     href: "/categories/management-travail",
     icon: "briefcase",
-    ruleCount: 15,
     number: "03",
   },
   {
@@ -60,7 +56,6 @@ export const categories: readonly Category[] = [
       "Acheter, négocier et gérer son argent avec davantage de recul et de méthode.",
     href: "/categories/argent-consommation",
     icon: "wallet",
-    ruleCount: 15,
     number: "04",
   },
   {
@@ -71,7 +66,6 @@ export const categories: readonly Category[] = [
       "Créer, piloter et développer une activité en gardant une vision simple et pragmatique.",
     href: "/categories/entrepreneuriat",
     icon: "rocket",
-    ruleCount: 15,
     number: "05",
   },
 ] as const;

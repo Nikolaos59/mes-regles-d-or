@@ -4,7 +4,8 @@ import ThemeIcon from "@/components/ThemeIcon";
 import Link from "next/link";
 
 import { getRulesByCategory } from "@/lib/content-store";
-import { readingMinutes, type Publication } from "@/data/publications";
+import { readingMinutes } from "@/lib/editorial-utils";
+import type { Publication } from "@/lib/editorial-types";
 import RuleCard from "@/components/RuleCard";
 export default async function PublicationArticle({ item }: { item: Publication }) {
  const theme = publicationTheme(item);

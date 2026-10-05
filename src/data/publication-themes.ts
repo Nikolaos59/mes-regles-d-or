@@ -1,4 +1,4 @@
-import type { Publication } from "@/data/publications";
+import type { Publication } from "@/lib/editorial-types";
 export const publicationThemes = [
  {id:"tourisme",label:"Tourisme & voyages",description:"Préparer son séjour, ses transports et ses réservations.",color:"#096F83",background:"#E2F4F5",icon:"compass"},
  {id:"ia",label:"Intelligence artificielle",description:"Utiliser l’IA avec discernement, vérifier ses réponses et protéger ses données.",color:"#6544A0",background:"#F0EAFB",icon:"spark"},

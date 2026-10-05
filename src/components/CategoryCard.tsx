@@ -7,10 +7,12 @@ import type {
 
 type CategoryCardProps = {
   category: Category;
+  ruleCount: number;
 };
 
 export default function CategoryCard({
   category,
+  ruleCount,
 }: CategoryCardProps) {
   return (
     <Link
@@ -25,7 +27,7 @@ export default function CategoryCard({
 
       <div className="mt-auto pt-16">
         <p className="mb-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#C89A3D]">
-          {category.ruleCount} règles
+          {ruleCount} règles
         </p>
 
         <h3 className="max-w-[280px] text-[27px] font-semibold leading-[1.05] tracking-[-0.04em] text-[#111827]">

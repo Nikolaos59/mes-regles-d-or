@@ -1,6 +1,7 @@
 import PublicationTags from "@/components/PublicationTags";
 import Link from "next/link";
-import { readingMinutes, type Publication } from "@/data/publications";
+import { readingMinutes } from "@/lib/editorial-utils";
+import type { Publication } from "@/lib/editorial-types";
 import { publicationTheme } from "@/data/publication-themes";
 import ThemeIcon from "@/components/ThemeIcon";
 export default function PublicationCard({ item }: { item: Publication }) {

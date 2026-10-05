@@ -1,11 +1,10 @@
 import { cache } from 'react';
 import { getBindings } from '@/lib/platform';
-import { rules as seedRules, type Rule } from '@/data/rules';
-import { publications as seedPublications, type Publication } from '@/data/publications';
+import type { Rule, Publication } from '@/lib/editorial-types';
 import type { Content } from './cms-types';
 export const getPublished = cache(async ():Promise<Content[]> => {
  const db=getBindings().DB;
- if(!db)return [...seedRules,...seedPublications];
+ if(!db)return [];
  const {results}=await db.prepare('SELECT published_json FROM content WHERE published_json IS NOT NULL AND deleted_at IS NULL').all<{published_json:string}>();
  return results.map(row=>JSON.parse(row.published_json) as Content).sort((a,b)=>(a.order??0)-(b.order??0)||a.title.localeCompare(b.title,'fr'));
 });

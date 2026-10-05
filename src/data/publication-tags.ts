@@ -1,4 +1,4 @@
-import type { Publication } from "@/data/publications";
+import type { Publication } from "@/lib/editorial-types";
 import { publicationTheme } from "@/data/publication-themes";
 
 export const tags = [

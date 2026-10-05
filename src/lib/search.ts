@@ -1,5 +1,4 @@
-import type { Publication } from "@/data/publications";
-import type { Rule } from "@/data/rules";
+import type { Publication, Rule } from "@/lib/editorial-types";
 import type { Category } from "@/data/categories";
 
 export const MAX_QUERY_LENGTH = 120;
