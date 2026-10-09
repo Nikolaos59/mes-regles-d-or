@@ -3,8 +3,9 @@ import styles from "./Hero.module.css";
 
 // Keep the original photo-led homepage while linking only to empty category pages.
 const panels = [
-  { title: "Cybersécurité", description: "Une catégorie prête à accueillir ses règles.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
-  { title: "IA", description: "Une catégorie bientôt disponible.", href: "/categories/ia", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
+  // Photos gratuites sous licence Unsplash : Dan Nelson (cybersécurité) et Nguyễn Duy Hưng (numérique).
+  { title: "Cybersécurité", description: "Une catégorie prête à accueillir ses règles.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Numérique", description: "Une catégorie bientôt disponible.", href: "/categories/numerique", image: "https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&w=1200&q=80" },
   { title: "Travaux", description: "Une catégorie bientôt disponible.", href: "/categories/travaux", image: "/images/accueil/plans_construction.webp" },
   { title: "Voiture", description: "Une catégorie bientôt disponible.", href: "/categories/voiture", image: "/images/accueil/vente_automobile.webp" },
   { title: "Voyage", description: "Une catégorie bientôt disponible.", href: "/categories/voyage", image: "/images/accueil/voyage.webp" },
