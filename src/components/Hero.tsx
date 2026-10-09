@@ -1,13 +1,13 @@
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
-// Photographs and expanding-panel interaction recovered from the original PHP homepage.
+// Keep the original photo-led homepage while linking only to empty category pages.
 const panels = [
-  { title: "Chantier", description: "Choisir un artisan, suivre ses travaux.", href: "/guides#travaux", image: "/images/accueil/plans_construction.webp" },
-  { title: "Voiture", description: "Acheter et louer avec les bons réflexes.", href: "/guides#automobile", image: "/images/accueil/vente_automobile.webp" },
-  { title: "Voyage", description: "Transports, réservations et séjours : préparer son départ.", href: "/tourisme", image: "/images/accueil/voyage.webp" },
-  { title: "Achats en ligne", description: "Acheter en ligne et connaître ses recours.", href: "/guides#achats", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Journal", description: "Prendre du recul sur ses décisions.", href: "/blog", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Cybersécurité", description: "Une catégorie prête à accueillir ses règles.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
+  { title: "IA & Numérique", description: "Des repères bientôt disponibles.", href: "/categories/ia-numerique", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Management & Travail", description: "Les contenus de cette catégorie arrivent.", href: "/categories/management-travail", image: "/images/accueil/plans_construction.webp" },
+  { title: "Argent & Consommation", description: "Une catégorie prête à être remplie.", href: "/categories/argent-consommation", image: "/images/accueil/vente_automobile.webp" },
+  { title: "Tourisme & voyages", description: "Les contenus seront publiés prochainement.", href: "/tourisme", image: "/images/accueil/voyage.webp" },
 ] as const;
 
 export default function Hero() {
@@ -16,19 +16,15 @@ export default function Hero() {
       <div className="container-mro">
         <div className={styles.intro}>
           <div>
-            <p className="eyebrow">Les bons réflexes, au bon moment</p>
-            <h1 id="home-title" className={styles.title}>Les bons réflexes pour éviter les pièges du quotidien.</h1>
+            <p className="eyebrow">Mes Règles d’Or</p>
+            <h1 id="home-title" className={styles.title}>Des repères pour mieux décider.</h1>
           </div>
           <div className={styles.lead}>
-            <p>Arnaque, achat, logement : trouvez les démarches à suivre et les points à vérifier avant d’agir.</p>
-            <Link href="/guides" className={styles.allRules}>Parcourir tous les guides <span aria-hidden="true">↗</span></Link>
+            <p>Le site se prépare. Les règles et les articles seront publiés ici prochainement.</p>
+            <Link href="/alertes" className={styles.allRules}>Être averti des nouveautés <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
-        <form action="/recherche" method="get" role="search" className={styles.search}>
-          <label htmlFor="home-search">Quelle situation rencontrez-vous ?</label>
-          <div className={styles.searchFields}><input id="home-search" name="q" type="search" maxLength={200} placeholder="Ex. : colis, faux conseiller, loyer…" /><button type="submit">Rechercher</button></div>
-        </form>
-        <nav className={styles.panels} aria-label="Explorer les sujets">
+        <nav className={styles.panels} aria-label="Explorer les catégories">
           {panels.map(panel => (
             <Link key={panel.title} href={panel.href} className={styles.panel}>
               <span className={styles.photo} style={{ backgroundImage: 'url(' + panel.image + ')' }} aria-hidden="true" />
@@ -41,7 +37,7 @@ export default function Hero() {
             </Link>
           ))}
         </nav>
-        <div className={styles.footer}><span>Des repères pour la vie quotidienne.</span><Link href="/guides">Tous les guides →</Link></div>
+        <div className={styles.footer}><span>Des repères pour la vie quotidienne.</span><Link href="/categories">Voir toutes les catégories →</Link></div>
       </div>
     </section>
   );
