@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
-// Keep the original photo-led homepage while linking only to empty category pages.
+// Preserve the photo-led homepage while linking to the current category pages.
 const panels = [
   // Photos gratuites sous licence Unsplash : Dan Nelson (cybersécurité) et Nguyễn Duy Hưng (numérique).
-  { title: "Cybersécurité", description: "Une catégorie prête à accueillir ses règles.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Numérique", description: "Une catégorie bientôt disponible.", href: "/categories/numerique", image: "https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Travaux", description: "Une catégorie bientôt disponible.", href: "/categories/travaux", image: "/images/accueil/plans_construction.webp" },
-  { title: "Voiture", description: "Une catégorie bientôt disponible.", href: "/categories/voiture", image: "/images/accueil/vente_automobile.webp" },
-  { title: "Voyage", description: "Une catégorie bientôt disponible.", href: "/categories/voyage", image: "/images/accueil/voyage.webp" },
+  { title: "Cybersécurité", description: "Adoptez les bons réflexes pour protéger vos comptes et vos données.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Numérique", description: "Choisissez et utilisez les outils numériques avec discernement.", href: "/categories/numerique", image: "https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Travaux", description: "Préparez vos travaux et suivez chaque étape avec méthode.", href: "/categories/travaux", image: "/images/accueil/plans_construction.webp" },
+  { title: "Voiture", description: "Prenez des décisions éclairées autour de la voiture.", href: "/categories/voiture", image: "/images/accueil/vente_automobile.webp" },
+  { title: "Voyage", description: "Préparez vos déplacements et partez mieux informé.", href: "/categories/voyage", image: "/images/accueil/voyage.webp" },
 ] as const;
 
 export default function Hero() {
@@ -21,7 +21,7 @@ export default function Hero() {
             <h1 id="home-title" className={styles.title}>Des repères pour mieux décider.</h1>
           </div>
           <div className={styles.lead}>
-            <p>Le site se prépare. Les règles et les articles seront publiés ici prochainement.</p>
+            <p>Des règles d’or et des guides pratiques pour avancer avec plus de clarté dans les décisions du quotidien.</p>
             <Link href="/alertes" className={styles.allRules}>Être averti des nouveautés <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
