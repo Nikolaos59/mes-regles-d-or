@@ -21,6 +21,8 @@ const footerNavigation = {
     { label: "Numérique", href: "/categories/numerique" },
     { label: "Management", href: "/categories/management" },
     { label: "Travail", href: "/categories/travail" },
+    { label: "Travaux", href: "/categories/travaux" },
+    { label: "Voiture", href: "/categories/voiture" },
     { label: "Argent", href: "/categories/argent" },
     { label: "Consommation", href: "/categories/consommation" },
     { label: "Entrepreneuriat", href: "/categories/entrepreneuriat" },
