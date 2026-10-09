@@ -23,5 +23,5 @@ export const siteCategories: readonly SiteCategory[] = [
   { id: "entrepreneuriat", name: "Entrepreneuriat", shortName: "Entrepreneuriat", description: "Les contenus de cette catégorie seront bientôt disponibles.", href: "/categories/entrepreneuriat", icon: "rocket", number: "10" },
   { id: "tpe-pme", name: "TPE-PME", shortName: "TPE-PME", description: "Les contenus de cette catégorie seront bientôt disponibles.", href: "/categories/tpe-pme", icon: "rocket", number: "11" },
   { id: "tourisme", name: "Tourisme", shortName: "Tourisme", description: "Les contenus de cette catégorie seront bientôt disponibles.", href: "/categories/tourisme", icon: "spark", number: "12" },
-  { id: "voyages", name: "Voyages", shortName: "Voyages", description: "Les contenus de cette catégorie seront bientôt disponibles.", href: "/categories/voyages", icon: "spark", number: "13" },
+  { id: "voyage", name: "Voyage", shortName: "Voyage", description: "Les contenus de cette catégorie seront bientôt disponibles.", href: "/categories/voyage", icon: "spark", number: "13" },
 ];

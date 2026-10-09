@@ -28,7 +28,7 @@ const footerNavigation = {
     { label: "Entrepreneuriat", href: "/categories/entrepreneuriat" },
     { label: "TPE-PME", href: "/categories/tpe-pme" },
     { label: "Tourisme", href: "/categories/tourisme" },
-    { label: "Voyages", href: "/categories/voyages" },
+    { label: "Voyage", href: "/categories/voyage" },
   ],
   informations: [
     {
