@@ -2,22 +2,17 @@ import Link from "next/link";
 
 const footerNavigation = {
   explorer: [
-    { label: "Recherche", href: "/recherche" },
-    {
-      label: "Règles d’or",
-      href: "/regles",
-    },
     {
       label: "Catégories",
       href: "/categories",
     },
     {
-      label: "Guides pratiques",
-      href: "/guides",
+      label: "Règles d’or",
+      href: "/regles",
     },
     {
-      label: "Journal",
-      href: "/blog",
+      label: "Recevoir les alertes",
+      href: "/alertes",
     },
   ],
   categories: [
@@ -41,13 +36,20 @@ const footerNavigation = {
       label: "Entrepreneuriat",
       href: "/categories/entrepreneuriat",
     },
+    {
+      label: "Tourisme & voyages",
+      href: "/tourisme",
+    },
   ],
   informations: [
     {
       label: "À propos",
       href: "/a-propos",
     },
-
+    {
+      label: "Administration",
+      href: "/admin",
+    },
   ],
 } as const;
 

@@ -6,26 +6,17 @@ import CategoryMenu from "./CategoryMenu";
 import styles from "./Header.module.css";
 
 const navigation = [
-  { label: "Recherche", href: "/recherche" },
-  {
-    label: "Règles d’or",
-    href: "/regles",
-  },
   {
     label: "Catégories",
     href: "/categories",
   },
   {
-    label: "Guides",
-    href: "/guides",
+    label: "Règles d’or",
+    href: "/regles",
   },
   {
-    label: "Journal",
-    href: "/blog",
-  },
-  {
-    label: "À propos",
-    href: "/a-propos",
+    label: "Recevoir les alertes",
+    href: "/alertes",
   },
 ] as const;
 
@@ -41,8 +32,8 @@ export default function Header() {
         <Link href="/" className={styles.logo} aria-label="Mes Règles d’Or — Accueil">
           <Image src="/images/accueil/logo-original.png" alt="Mes Règles d’Or" width={598} height={259} unoptimized />
         </Link>
-        <Link href="/contact" className={styles.rollingLink} aria-label="Contact">
-          <span className={styles.roller} aria-hidden="true"><span>Contact</span><span>Contact</span></span>
+        <Link href="/admin" className={styles.rollingLink} aria-label="Connexion administrateur">
+          <span className={styles.roller} aria-hidden="true"><span>Admin</span><span>Admin</span></span>
         </Link>
       </div>
       <div className="container-mro">

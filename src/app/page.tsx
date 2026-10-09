@@ -1,101 +1,31 @@
-export const dynamic="force-dynamic";
-import { getPublications, getRules } from "@/lib/content-store";
-import PublicationCard from "@/components/PublicationCard";
-import { createPageMetadata, siteDescription } from "@/lib/seo";
 import Link from "next/link";
-
-
-import Hero from "@/components/Hero";
-
+import { categories } from "@/data/categories";
+import CategoryCard from "@/components/CategoryCard";
+import { createPageMetadata, siteDescription } from "@/lib/seo";
 
 export const metadata = {
-  ...createPageMetadata({
-    title: "Mes Règles d’Or — des repères pour mieux décider",
-    description: siteDescription,
-    path: "/",
-  }),
+  ...createPageMetadata({ title: "Mes Règles d’Or — des repères pour mieux décider", description: siteDescription, path: "/" }),
   title: { absolute: "Mes Règles d’Or — des repères pour mieux décider" },
 };
 
-export default async function HomePage() {
- const [publications,rules]=await Promise.all([getPublications(),getRules()]);
- const featuredRule=rules.find(rule=>(rule.homeRank??0)>0)??rules[0];
+export default function HomePage() {
   return (
-    <main>
-      <Hero />
-      <section className="container-mro section-mro"><p className="eyebrow">Passer à la pratique</p><h2 className="heading-section mt-6">Des réponses à des situations concrètes.</h2><div className="mt-10 grid gap-6 md:grid-cols-3">{publications.filter(item=>item.kind==="guides" && (item.homeRank??0)>0).sort((a,b)=>(a.homeRank??0)-(b.homeRank??0)).slice(0,3).map(item=><PublicationCard key={item.slug} item={item}/>)}</div><Link href="/guides" className="mt-8 inline-block font-semibold underline underline-offset-4">Voir tous les guides →</Link></section>
-
-      <section className="container-mro pb-12" aria-labelledby="home-categories"><h2 id="home-categories" className="text-2xl font-semibold">Explorer par catégorie</h2><nav aria-label="Catégories" className="mt-6 flex flex-wrap gap-x-7 gap-y-3">{[{label:"Cybersécurité",href:"/categories/cybersecurite"},{label:"IA & Numérique",href:"/ia"},{label:"Travail",href:"/categories/management-travail"},{label:"Argent & consommation",href:"/categories/argent-consommation"},{label:"Entreprendre",href:"/categories/entrepreneuriat"},{label:"Tourisme",href:"/tourisme"}].map(item=><Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center font-medium underline underline-offset-4">{item.label}</Link>)}</nav></section>
-
-      {featuredRule&&<section className="container-mro py-5 sm:py-7">
-        <div className="relative overflow-hidden rounded-[28px] bg-[#0F172A] px-7 py-16 text-white sm:rounded-[32px] sm:px-12 sm:py-20 lg:px-20 lg:py-24">
-          <div
-            className="pointer-events-none absolute -right-[180px] -top-[240px] h-[540px] w-[540px] rounded-full border border-white/[0.05]"
-            aria-hidden="true"
-          />
-
-          <div
-            className="pointer-events-none absolute -right-[100px] -top-[160px] h-[380px] w-[380px] rounded-full border border-[#C89A3D]/10"
-            aria-hidden="true"
-          />
-
-          <div className="relative z-10 grid gap-14 lg:grid-cols-[0.7fr_1.5fr] lg:items-start">
-            <div>
-              <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[#C89A3D]">
-                Règle mise en avant
-              </p>
-            </div>
-
-            <div className="max-w-[850px]">
-              <div className="gold-line" />
-
-              <blockquote className="mt-8 text-balance text-[clamp(2.4rem,4.8vw,4.9rem)] font-medium leading-[1.03] tracking-[-0.05em] text-white">
-                « {featuredRule.title} »
-              </blockquote>
-
-              <p className="mt-9 max-w-[680px] text-[17px] leading-8 text-white/60">
-                {featuredRule.summary}
-              </p>
-
-              <Link
-                href={`/regles/${featuredRule.slug}`}
-                className="mt-10 inline-flex items-center gap-3 text-[15px] font-semibold text-[#E3C486] transition-colors hover:text-white"
-              >
-                Lire la règle complète
-                <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>}
-
-      <section className="section-mro">
-        <div className="container-mro">
-          <div className="grid gap-10 rounded-[32px] border border-black/[0.07] bg-white px-7 py-12 shadow-[0_10px_50px_rgba(15,23,42,0.04)] sm:px-12 lg:grid-cols-[1fr_auto] lg:items-center lg:px-16 lg:py-16">
-            <div className="max-w-[740px]">
-              <p className="eyebrow">
-                Une bibliothèque à garder près de soi
-              </p>
-
-              <h2 className="mt-5 text-balance text-[clamp(2.4rem,4.3vw,4rem)] font-medium leading-[1.02] tracking-[-0.05em] text-[#111827]">
-                Comprendre, vérifier.
-                <br />
-                Puis agir.
-              </h2>
-
-              <p className="mt-7 max-w-[640px] text-[17px] leading-8 text-[#6B7280]">
-                Des guides avec leurs sources et des checklists pour passer à l’action. Consultez les références de chaque article et leur date de vérification.
-              </p>
-            </div>
-
-            <Link
-              href="/regles"
-              className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#0F172A] px-8 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#18233A] hover:shadow-xl"
-            >
-              Explorer les règles
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+    <main className="container-mro section-mro">
+      <section className="max-w-4xl py-8 sm:py-16">
+        <p className="eyebrow">Mes Règles d’Or</p>
+        <h1 className="heading-display mt-7 text-balance">Des repères pour mieux décider.</h1>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-[#6B7280]">Le site se prépare. Les règles et les articles seront publiés ici prochainement.</p>
+        <Link href="/alertes" className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[#0F172A] px-7 font-semibold text-white">Être averti des nouveautés →</Link>
+      </section>
+      <section aria-labelledby="home-categories" className="border-t border-black/[0.07] pt-12">
+        <p className="eyebrow">Explorer</p>
+        <h2 id="home-categories" className="heading-section mt-4">Les catégories</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {categories.map(category => <CategoryCard key={category.id} category={category} />)}
+          <Link href="/tourisme" className="group flex min-h-[350px] flex-col rounded-[28px] border border-black/[0.07] bg-[#F4F1E9] p-8 transition-all hover:-translate-y-1 hover:shadow-lg">
+            <span className="text-sm font-semibold uppercase tracking-[0.14em] text-[#9B752A]">06</span>
+            <div className="mt-auto"><h3 className="text-[27px] font-semibold">Tourisme & voyages</h3><p className="mt-4 text-[15px] leading-7 text-[#6B7280]">Les contenus de cette catégorie seront bientôt disponibles.</p><span className="mt-7 inline-block text-sm font-semibold">Explorer →</span></div>
+          </Link>
         </div>
       </section>
     </main>

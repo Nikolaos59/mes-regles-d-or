@@ -3,13 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./CategoryMenu.module.css";
 const groups = [
- {title:"Argent & consommation",links:[["Achats et budget","/guides#achats"],["Banque et arnaques","/guides/faux-conseiller-bancaire"]]},
- {title:"Logement & travaux",links:[["Louer et se loger","/guides#logement"],["Travaux et artisans","/guides#travaux"]]},
- {title:"Voiture",links:[["Acheter","/guides/acheter-une-voiture-occasion"],["Entretenir et réparer","/guides/garage-ordre-reparation"],["Louer","/guides/location-voiture-etat"]]},
- {title:"Voyages & tourisme",links:[["Tous les guides voyage","/tourisme"],["Avion et train","/guides/train-retard-reclamation"]]},
- {title:"Numérique & cybersécurité",links:[["Comptes et arnaques","/guides#numerique"],["Données personnelles","/tags/donnees-personnelles"]]},
- {title:"Intelligence artificielle",links:[["Utiliser et vérifier l’IA","/ia"]]},
- {title:"Travail & entreprise",links:[["Vie professionnelle","/guides#travail"],["Créer et gérer son activité","/guides#projets"]]},
+ {title:"Cybersécurité",links:[["Voir la catégorie","/categories/cybersecurite"]]},
+ {title:"IA & Numérique",links:[["Voir la catégorie","/categories/ia-numerique"]]},
+ {title:"Management & Travail",links:[["Voir la catégorie","/categories/management-travail"]]},
+ {title:"Argent & Consommation",links:[["Voir la catégorie","/categories/argent-consommation"]]},
+ {title:"Entrepreneuriat",links:[["Voir la catégorie","/categories/entrepreneuriat"]]},
+ {title:"Tourisme & voyages",links:[["Voir la catégorie","/tourisme"]]},
 ];
 export default function CategoryMenu(){
  const [open,setOpen]=useState(false);
