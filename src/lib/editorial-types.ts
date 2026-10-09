@@ -1,5 +1,12 @@
 export type RuleCategoryId =
   | "cybersecurite"
+  | "ia"
+  | "numerique"
+  | "travaux"
+  | "voiture"
+  | "banque"
+  | "consommation"
+  | "voyage"
   | "ia-numerique"
   | "management-travail"
   | "argent-consommation"

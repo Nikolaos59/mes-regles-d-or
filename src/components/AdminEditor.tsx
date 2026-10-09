@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
-import { categories } from '@/data/categories';
+import { editorialCategories } from '@/data/categories';
 import { publicationThemes, publicationTheme } from '@/data/publication-themes';
 import { tags, publicationTags } from '@/data/publication-tags';
 import type { Content, RecordRow } from '@/lib/cms-types';
@@ -41,7 +41,7 @@ export default function AdminEditor({actor}:{actor:string}){
  <p className={styles.address}>Adresse conservée : /{row.id} · Version {row.version}</p>
  {preview?<article className={styles.preview}><p>Brouillon — non publié</p><h2>{value.title}</h2>{'kind'in value?<><p>{value.intro}</p>{value.sections.map((s,i)=><section key={i}><h3>{s.title}</h3>{s.paragraphs.map((p,j)=><p key={j}>{p}</p>)}</section>)}<h3>Checklist</h3><ul>{value.checklist.map((p,i)=><li key={i}>{p}</li>)}</ul><h3>Sources</h3><ul>{value.sources?.map((s,i)=><li key={i}>{s.label} — {s.url}</li>)}</ul></>:<><p>{value.summary}</p><p>{value.detail}</p></>}</article>:<fieldset disabled={busy}>
  {field('Titre','title',true)}
- <div className={styles.two}><label>Domaine des règles<select value={value.categoryId} onChange={e=>patch({categoryId:e.target.value as Content['categoryId']})}>{categories.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label>{'kind'in value&&<label>Catégorie des guides<select value={value.themeId} onChange={e=>patch({themeId:e.target.value as typeof value.themeId})}>{publicationThemes.map(t=><option key={t.id} value={t.id}>{t.label}</option>)}</select></label>}</div>
+ <div className={styles.two}><label>Domaine des règles<select value={value.categoryId} onChange={e=>patch({categoryId:e.target.value as Content['categoryId']})}>{editorialCategories.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label>{'kind'in value&&<label>Catégorie des guides<select value={value.themeId} onChange={e=>patch({themeId:e.target.value as typeof value.themeId})}>{publicationThemes.map(t=><option key={t.id} value={t.id}>{t.label}</option>)}</select></label>}</div>
  <div className={styles.two}>{field('Sous-catégorie (ex. Acheter, Vendre)','subcategory')}<label>Ordre dans les listes (plus petit = plus haut)<input type="number" min="0" max="10000" value={value.order??0} onChange={e=>patch({order:Number(e.target.value)})}/></label></div>
  <label>Priorité sur l’accueil (0 = non sélectionné)<input type="number" min="0" max="100" value={value.homeRank??0} onChange={e=>patch({homeRank:Number(e.target.value)})}/></label>
  {'kind'in value?<>

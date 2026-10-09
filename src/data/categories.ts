@@ -17,55 +17,24 @@ export type Category = {
   number: string;
 };
 
+// Categories currently offered to readers and editors.
 export const categories: readonly Category[] = [
-  {
-    id: "cybersecurite",
-    name: "Cybersécurité",
-    shortName: "Cybersécurité",
-    description:
-      "Se protéger des fraudes, des arnaques et des mauvaises pratiques numériques.",
-    href: "/categories/cybersecurite",
-    icon: "shield",
-    number: "01",
-  },
-  {
-    id: "ia-numerique",
-    name: "IA & Numérique",
-    shortName: "IA & Numérique",
-    description:
-      "Utiliser la technologie et l'intelligence artificielle avec méthode et discernement.",
-    href: "/categories/ia-numerique",
-    icon: "spark",
-    number: "02",
-  },
-  {
-    id: "management-travail",
-    name: "Management & Travail",
-    shortName: "Management & Travail",
-    description:
-      "Mieux communiquer, collaborer, décider et avancer dans son environnement professionnel.",
-    href: "/categories/management-travail",
-    icon: "briefcase",
-    number: "03",
-  },
-  {
-    id: "argent-consommation",
-    name: "Argent & Consommation",
-    shortName: "Argent & Consommation",
-    description:
-      "Acheter, négocier et gérer son argent avec davantage de recul et de méthode.",
-    href: "/categories/argent-consommation",
-    icon: "wallet",
-    number: "04",
-  },
-  {
-    id: "entrepreneuriat",
-    name: "Entrepreneuriat & TPE-PME",
-    shortName: "Entrepreneuriat",
-    description:
-      "Créer, piloter et développer une activité en gardant une vision simple et pragmatique.",
-    href: "/categories/entrepreneuriat",
-    icon: "rocket",
-    number: "05",
-  },
-] as const;
+  { id: "cybersecurite", name: "Cybersécurité", shortName: "Cybersécurité", description: "Se protéger des fraudes, des arnaques et des mauvaises pratiques numériques.", href: "/categories/cybersecurite", icon: "shield", number: "01" },
+  { id: "ia", name: "IA", shortName: "IA", description: "Utiliser l’intelligence artificielle avec méthode et discernement.", href: "/categories/ia", icon: "spark", number: "02" },
+  { id: "numerique", name: "Numérique", shortName: "Numérique", description: "Mieux choisir et utiliser les outils et services numériques.", href: "/categories/numerique", icon: "spark", number: "03" },
+  { id: "travaux", name: "Travaux", shortName: "Travaux", description: "Préparer et suivre des travaux avec méthode.", href: "/categories/travaux", icon: "briefcase", number: "04" },
+  { id: "voiture", name: "Voiture", shortName: "Voiture", description: "Prendre des décisions éclairées autour de la voiture et des déplacements.", href: "/categories/voiture", icon: "wallet", number: "05" },
+  { id: "banque", name: "Banque", shortName: "Banque", description: "Gérer son budget, ses services bancaires et ses engagements financiers.", href: "/categories/banque", icon: "wallet", number: "06" },
+  { id: "consommation", name: "Consommation", shortName: "Consommation", description: "Acheter, comparer et faire valoir ses droits de consommateur.", href: "/categories/consommation", icon: "wallet", number: "07" },
+  { id: "voyage", name: "Voyage", shortName: "Voyage", description: "Préparer ses déplacements et connaître les bons réflexes en voyage.", href: "/categories/voyage", icon: "spark", number: "08" },
+];
+
+// Retained only so editors can review and reclassify existing content safely.
+export const legacyCategories: readonly Category[] = [
+  { id: "ia-numerique", name: "Ancienne catégorie : IA & Numérique", shortName: "Ancienne catégorie : IA & Numérique", description: "Contenus à reclasser.", href: "/categories/ia-numerique", icon: "spark", number: "90" },
+  { id: "management-travail", name: "Ancienne catégorie : Management & Travail", shortName: "Ancienne catégorie : Management & Travail", description: "Contenus à reclasser.", href: "/categories/management-travail", icon: "briefcase", number: "91" },
+  { id: "argent-consommation", name: "Ancienne catégorie : Argent & Consommation", shortName: "Ancienne catégorie : Argent & Consommation", description: "Contenus à reclasser.", href: "/categories/argent-consommation", icon: "wallet", number: "92" },
+  { id: "entrepreneuriat", name: "Ancienne catégorie : Entrepreneuriat & TPE-PME", shortName: "Ancienne catégorie : Entrepreneuriat & TPE-PME", description: "Contenus à reclasser.", href: "/categories/entrepreneuriat", icon: "rocket", number: "93" },
+];
+
+export const editorialCategories: readonly Category[] = [...categories, ...legacyCategories];

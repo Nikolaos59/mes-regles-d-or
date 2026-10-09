@@ -1,4 +1,4 @@
-import { categories } from '@/data/categories';
+import { editorialCategories } from '@/data/categories';
 import { publicationThemes } from '@/data/publication-themes';
 import { tags } from '@/data/publication-tags';
 import type { Content } from './cms-types';
@@ -7,7 +7,7 @@ export function validateContent(value:unknown, original:Content):Content {
  const obj=value as Record<string,unknown>;
  const text=(v:unknown,max:number,required=true):string=>{if(typeof v!=='string'||v.length>max||(required&&!v.trim()))throw Error('Un texte est vide ou trop long.');return v.trim();};
  const title=text(obj.title,250), categoryId=text(obj.categoryId,80);
- if(!categories.some(c=>c.id===categoryId))throw Error('Domaine inconnu.');
+ if(!editorialCategories.some(c=>c.id===categoryId))throw Error('Domaine inconnu.');
  const order=obj.order??0,homeRank=obj.homeRank??0;
  if(!Number.isInteger(order)||Number(order)<0||Number(order)>10000||!Number.isInteger(homeRank)||Number(homeRank)<0||Number(homeRank)>100)throw Error('Ordre invalide.');
  if(obj.slug!==original.slug || ('kind' in original ? obj.kind!==original.kind : obj.id!==original.id))throw Error('L’adresse et le type ne peuvent pas être modifiés.');

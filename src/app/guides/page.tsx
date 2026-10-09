@@ -5,7 +5,7 @@ import { getPublications } from "@/lib/content-store";
 import { publicationThemes, publicationTheme } from "@/data/publication-themes";
 import PublicationCard from "@/components/PublicationCard";
 import ThemeIcon from "@/components/ThemeIcon";
-export const metadata = createPageMetadata({title:"Guides pratiques",description:"Trouvez un guide par situation : logement, travaux, automobile, achats, numérique, travail et entrepreneuriat.",path:"/guides"});
+export const metadata = createPageMetadata({title:"Guides pratiques",description:"Trouvez un guide par situation : logement, travaux, voiture, achats, numérique, banque et voyage.",path:"/guides"});
 export default async function Page() {
  const publications=await getPublications();
  const guides=publications.filter(item=>item.kind==="guides");
