@@ -22,8 +22,8 @@ export default function AboutPage() {
         ].map(([title, text]) => <section key={title} className="rounded-[28px] border border-black/[0.07] bg-white p-8"><h2 className="text-2xl font-semibold tracking-tight">{title}</h2><p className="mt-5 text-lg leading-8 text-[#6B7280]">{text}</p></section>)}
       </div>
       <section className="mt-14 max-w-3xl">
-        <h2 className="heading-section">Cinq domaines, un même réflexe.</h2>
-        <p className="mt-7 text-lg leading-8 text-[#6B7280]">Cybersécurité, IA et numérique, management et travail, argent et consommation, entrepreneuriat : des contextes différents, avec une même invitation à décider plus consciemment.</p>
+        <h2 className="heading-section">Des domaines variés, un même réflexe.</h2>
+        <p className="mt-7 text-lg leading-8 text-[#6B7280]">Cybersécurité, IA et numérique, travaux, voiture, banque, consommation et voyage : des contextes différents, avec une même invitation à décider plus consciemment.</p>
         <Link href="/regles" className="mt-8 inline-flex rounded-full bg-[#0F172A] px-7 py-4 font-semibold text-white">Explorer les règles →</Link>
       </section>
     </main>
