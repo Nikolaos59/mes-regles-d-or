@@ -47,7 +47,7 @@ const footerNavigation = {
       href: "/a-propos",
     },
     {
-      label: "Administration",
+      label: "Connexion",
       href: "/admin",
     },
   ],

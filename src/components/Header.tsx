@@ -32,8 +32,8 @@ export default function Header() {
         <Link href="/" className={styles.logo} aria-label="Mes Règles d’Or — Accueil">
           <Image src="/images/accueil/logo-original.png" alt="Mes Règles d’Or" width={598} height={259} unoptimized />
         </Link>
-        <Link href="/admin" className={styles.rollingLink} aria-label="Connexion administrateur">
-          <span className={styles.roller} aria-hidden="true"><span>Admin</span><span>Admin</span></span>
+        <Link href="/admin" className={styles.rollingLink} aria-label="Connexion">
+          <span className={styles.roller} aria-hidden="true"><span>Connexion</span><span>Connexion</span></span>
         </Link>
       </div>
       <div className="container-mro">
