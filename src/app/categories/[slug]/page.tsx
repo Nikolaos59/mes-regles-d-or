@@ -2,24 +2,24 @@ import { createPageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { categories } from "@/data/categories";
+import { siteCategories } from "@/data/site-categories";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return categories.map(category => ({ slug: category.id }));
+  return siteCategories.map(category => ({ slug: category.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const category = categories.find(item => item.id === slug);
+  const category = siteCategories.find(item => item.id === slug);
   if (!category) notFound();
   return createPageMetadata({ title: category.name, description: category.description, path: category.href });
 }
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
-  const category = categories.find(item => item.id === slug);
+  const category = siteCategories.find(item => item.id === slug);
   if (!category) notFound();
   return (
     <main className="container-mro section-mro">

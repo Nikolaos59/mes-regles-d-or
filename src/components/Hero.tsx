@@ -4,10 +4,11 @@ import styles from "./Hero.module.css";
 // Keep the original photo-led homepage while linking only to empty category pages.
 const panels = [
   { title: "Cybersécurité", description: "Une catégorie prête à accueillir ses règles.", href: "/categories/cybersecurite", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
-  { title: "IA & Numérique", description: "Des repères bientôt disponibles.", href: "/categories/ia-numerique", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
-  { title: "Management & Travail", description: "Les contenus de cette catégorie arrivent.", href: "/categories/management-travail", image: "/images/accueil/plans_construction.webp" },
-  { title: "Argent & Consommation", description: "Une catégorie prête à être remplie.", href: "/categories/argent-consommation", image: "/images/accueil/vente_automobile.webp" },
-  { title: "Tourisme & voyages", description: "Les contenus seront publiés prochainement.", href: "/tourisme", image: "/images/accueil/voyage.webp" },
+  { title: "IA", description: "Une catégorie bientôt disponible.", href: "/categories/ia", image: "https://images.unsplash.com/photo-1548506923-99f6e89852fe?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Numérique", description: "Une catégorie bientôt disponible.", href: "/categories/numerique", image: "https://images.unsplash.com/photo-1548407260-da850faa41e3?auto=format&fit=crop&w=1200&q=80" },
+  { title: "Management", description: "Une catégorie bientôt disponible.", href: "/categories/management", image: "/images/accueil/plans_construction.webp" },
+  { title: "Travail", description: "Une catégorie bientôt disponible.", href: "/categories/travail", image: "/images/accueil/vente_automobile.webp" },
+  { title: "Voyages", description: "Une catégorie bientôt disponible.", href: "/categories/voyages", image: "/images/accueil/voyage.webp" },
 ] as const;
 
 export default function Hero() {

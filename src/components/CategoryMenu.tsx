@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { categories } from "@/data/categories";
+import { siteCategories } from "@/data/site-categories";
 import styles from "./CategoryMenu.module.css";
 
 const categoryLinks = [
-  ...categories.map(category => ({ label: category.shortName, href: category.href })),
-  { label: "Tourisme & voyages", href: "/tourisme" },
+  ...siteCategories.map(category => ({ label: category.shortName, href: category.href })),
 ];
 
 export default function CategoryMenu({ pathname }: { pathname: string }) {

@@ -16,30 +16,17 @@ const footerNavigation = {
     },
   ],
   categories: [
-    {
-      label: "Cybersécurité",
-      href: "/categories/cybersecurite",
-    },
-    {
-      label: "IA & Numérique",
-      href: "/categories/ia-numerique",
-    },
-    {
-      label: "Management & Travail",
-      href: "/categories/management-travail",
-    },
-    {
-      label: "Argent & Consommation",
-      href: "/categories/argent-consommation",
-    },
-    {
-      label: "Entrepreneuriat",
-      href: "/categories/entrepreneuriat",
-    },
-    {
-      label: "Tourisme & voyages",
-      href: "/tourisme",
-    },
+    { label: "Cybersécurité", href: "/categories/cybersecurite" },
+    { label: "IA", href: "/categories/ia" },
+    { label: "Numérique", href: "/categories/numerique" },
+    { label: "Management", href: "/categories/management" },
+    { label: "Travail", href: "/categories/travail" },
+    { label: "Argent", href: "/categories/argent" },
+    { label: "Consommation", href: "/categories/consommation" },
+    { label: "Entrepreneuriat", href: "/categories/entrepreneuriat" },
+    { label: "TPE-PME", href: "/categories/tpe-pme" },
+    { label: "Tourisme", href: "/categories/tourisme" },
+    { label: "Voyages", href: "/categories/voyages" },
   ],
   informations: [
     {
@@ -59,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0B1220] text-white">
       <div className="container-mro">
-        <div className="grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-10">
+        <div className="grid gap-14 py-20 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.4fr_1fr] lg:gap-10">
           <div className="max-w-sm">
             <Link
               href="/"

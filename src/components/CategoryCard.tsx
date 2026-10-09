@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-import type {
-  Category,
-  CategoryIcon,
-} from "@/data/categories";
+import type { CategoryIcon } from "@/data/categories";
+import type { SiteCategory } from "@/data/site-categories";
 
 type CategoryCardProps = {
-  category: Category;
+  category: SiteCategory;
 };
 
 export default function CategoryCard({
