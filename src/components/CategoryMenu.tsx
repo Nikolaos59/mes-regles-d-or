@@ -1,25 +1,22 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { categories } from "@/data/categories";
 import styles from "./CategoryMenu.module.css";
-const groups = [
- {title:"Cybersécurité",links:[["Voir la catégorie","/categories/cybersecurite"]]},
- {title:"IA & Numérique",links:[["Voir la catégorie","/categories/ia-numerique"]]},
- {title:"Management & Travail",links:[["Voir la catégorie","/categories/management-travail"]]},
- {title:"Argent & Consommation",links:[["Voir la catégorie","/categories/argent-consommation"]]},
- {title:"Entrepreneuriat",links:[["Voir la catégorie","/categories/entrepreneuriat"]]},
- {title:"Tourisme & voyages",links:[["Voir la catégorie","/tourisme"]]},
+
+const categoryLinks = [
+  ...categories.map(category => ({ label: category.shortName, href: category.href })),
+  { label: "Tourisme & voyages", href: "/tourisme" },
 ];
-export default function CategoryMenu(){
- const [open,setOpen]=useState(false);
- const root=useRef<HTMLDivElement>(null),button=useRef<HTMLButtonElement>(null),timer=useRef<ReturnType<typeof setTimeout>|null>(null);
- const cancel=()=>{if(timer.current)clearTimeout(timer.current);};
- const close=()=>{cancel();setOpen(false);};
- useEffect(()=>{const outside=(e:PointerEvent)=>{if(!root.current?.contains(e.target as Node))setOpen(false);};document.addEventListener("pointerdown",outside);return()=>{document.removeEventListener("pointerdown",outside);if(timer.current)clearTimeout(timer.current);};},[]);
- return <div ref={root} className={styles.root} onPointerEnter={e=>{if(e.pointerType==="mouse"){cancel();setOpen(true);}}} onPointerLeave={e=>{if(e.pointerType==="mouse"){cancel();timer.current=setTimeout(()=>{if(!root.current?.contains(document.activeElement))setOpen(false);},220);}}} onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget as Node))close();}} onKeyDown={e=>{if(e.key==="Escape"){e.preventDefault();close();button.current?.focus();}}}>
- <button ref={button} type="button" className={styles.trigger} aria-expanded={open} aria-controls="category-panel" onClick={()=>{cancel();setOpen(!open);}} onKeyDown={e=>{if(e.key==="ArrowDown"){e.preventDefault();setOpen(true);requestAnimationFrame(()=>root.current?.querySelector<HTMLAnchorElement>("a")?.focus());}}}>Catégories <span aria-hidden="true">{open ? "−" : "+"}</span></button>
- <div id="category-panel" className={styles.panel} hidden={!open}>
- <Link href="/categories" className={styles.all} onClick={close}>Voir toutes les catégories →</Link>
- <div className={styles.grid}>{groups.map(group=><section key={group.title}><h2>{group.title}</h2><ul>{group.links.map(([label,href])=><li key={href}><Link href={href} onClick={close}>{label}</Link></li>)}</ul></section>)}</div>
- </div></div>;
+
+export default function CategoryMenu({ pathname }: { pathname: string }) {
+  return (
+    <div className={styles.submenu}>
+      <span className={styles.label}>Catégories</span>
+      <nav className={styles.links} aria-label="Sous-menu des catégories">
+        {categoryLinks.map(category => {
+          const active = pathname === category.href || pathname.startsWith(`${category.href}/`);
+          return <Link key={category.href} href={category.href} aria-current={active ? "page" : undefined} className={active ? styles.active : undefined}>{category.label}</Link>;
+        })}
+      </nav>
+    </div>
+  );
 }

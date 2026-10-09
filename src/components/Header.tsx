@@ -7,10 +7,6 @@ import styles from "./Header.module.css";
 
 const navigation = [
   {
-    label: "Catégories",
-    href: "/categories",
-  },
-  {
     label: "Règles d’or",
     href: "/regles",
   },
@@ -41,7 +37,7 @@ export default function Header() {
           className={styles.navigation}
           aria-label="Navigation principale"
         >
-          {navigation.map((item) => item.href === "/categories" ? <CategoryMenu key={item.href}/> : (
+          {navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -52,8 +48,7 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-
-
+        <CategoryMenu pathname={pathname} />
       </div>
     </header>
   );
