@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import RuleCard from "@/components/RuleCard";
+import RuleMarkdown from "@/components/RuleMarkdown";
 import { categories } from "@/data/categories";
 import { getRuleBySlug, getRulesByCategory } from "@/lib/content-store";
 
@@ -38,7 +39,7 @@ export default async function RulePage({ params }: Props) {
         <p className="mt-8 max-w-3xl text-xl leading-9 text-[#6B7280]">{rule.summary}</p>
         <section className="mt-12 rounded-[28px] border border-black/[0.07] bg-white p-7 sm:p-10">
           <h2 className="text-2xl font-semibold tracking-tight">Passer à l’action</h2>
-          <p className="mt-5 whitespace-pre-line text-lg leading-9">{rule.detail}</p>
+          <RuleMarkdown content={rule.detail}/>
         </section>
       </article>
       <Link href={category.href} className="mt-10 inline-block font-semibold underline underline-offset-4">Explorer les règles de ce domaine →</Link>
